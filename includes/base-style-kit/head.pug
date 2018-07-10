@@ -1,0 +1,8 @@
+head
+  include ./head--core-metadata.pug
+  include ./head--seo-metadata.pug
+  include ./head--favicon.pug
+
+  block styles
+    include ./head--core-styles.pug
+    //- Use 'block append styles' in templates inheriting from this layout to include other styles

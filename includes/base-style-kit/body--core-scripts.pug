@@ -1,0 +1,5 @@
+each script in attributes.site_scripts
+  if script.integrity
+    script(src=script.href integrity=script.integrity crossorigin='anonymous')
+  else
+    script(src=script.href)

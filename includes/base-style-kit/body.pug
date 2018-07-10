@@ -1,0 +1,13 @@
+include ./body--back-to-top.pug
+
+block pre_main_content
+
+block main_content_container
+  main#site-main-content
+    block main_content
+
+block post_main_content
+
+block scripts
+  include ./body--core-scripts.pug
+  //- Use 'block append scripts' in templates inheriting from this layout to include other scripts

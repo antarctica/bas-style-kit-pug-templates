@@ -1,0 +1,12 @@
+if bsk_attributes.site_nav_primary
+    ul.bsk-nav.bsk-navbar-nav
+        each item in bsk_attributes.site_nav_primary
+            unless item.items
+                li: a(href=item.href) #{item.title}
+            else
+                li.bsk-dropdown
+                    a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                        | #{item.title} #[span.bsk-caret]
+                    ul.bsk-dropdown-menu
+                        each sub_item in item.items
+                            li: a(href=item.href) #{item.title}

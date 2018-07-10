@@ -1,0 +1,14 @@
+if bsk_attributes.container_class == 'bsk-container'
+    - var container_type = 'fixed';
+else if bsk_attributes.container_class == 'bsk-container-fluid'
+    - var container_type = 'fluid';
+else
+    - var container_type = null;
+
+div(class='bsk-fix-alert-static-top-' + container_type + '-container-wrapper')
+    div(class=bsk_attributes.container_class)
+        div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(data-bsk-role='cookie-notice')
+            button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+                i.fa.fa-times(aria-hidden='true')
+            | This website uses cookies to help us make it better - 
+            a.bsk-alert-link(href=bsk_attributes.site_footer_policies_cookies_href) find out more

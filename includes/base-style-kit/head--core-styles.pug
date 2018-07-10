@@ -1,0 +1,5 @@
+each style in attributes.site_styles
+  if style.integrity
+    link(rel='stylesheet' href=style.href integrity=style.integrity crossorigin='anonymous')
+  else
+    link(rel='stylesheet' href=style.href)

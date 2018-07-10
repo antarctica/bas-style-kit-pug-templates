@@ -1,0 +1,11 @@
+unless bsk_attributes.site_development_phase == 'live-stable'
+    div(class=bsk_attributes.container_class)
+        unless bsk_attributes.site_development_phase == 'experimental'
+            span.bsk-text-uppercase.bsk-label(class='bsk-label-phase-' + bsk_attributes.site_development_phase) #{bsk_attributes.site_development_phase}
+            |
+            | This is a new website, your #[a(href=bsk_attributes.site_feedback_href) feedback] will help us to improve it.
+        else
+            span.bsk-text-uppercase.bsk-label(class='bsk-label-' + bsk_attributes.site_development_phase) #{bsk_attributes.site_development_phase}
+            |
+            | This website is used for testing, your #[a(href=bsk_attributes.site_feedback_href) feedback] will help us to improve it.
+        hr.bsk-hr-dashed

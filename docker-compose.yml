@@ -1,0 +1,21 @@
+---
+version: '2'
+
+services:
+  app:
+    build: .
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.1.0-develop-alpine
+    volumes:
+      - ./gulpfile.js:/usr/src/app/gulpfile.js
+      - ./layouts:/usr/src/app/layouts
+      - ./includes:/usr/src/app/includes
+      - ./tests:/usr/src/app/tests
+
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/index.html:/usr/share/nginx/html/public/index.html
+      - ./tests/public:/usr/share/nginx/html/public/develop
+    ports:
+      - "9000:9000"

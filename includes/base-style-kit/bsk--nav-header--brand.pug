@@ -1,0 +1,9 @@
+if bsk_attributes.site_nav_brand_img_href
+    a.bsk-navbar-brand(class='bsk-navbar-brand-image-' + bsk_attributes.site_nav_brand_img_size href=bsk_attributes.site_nav_brand_href)
+        if bsk_attributes.site_nav_brand_text
+            img.bsk-fix-navbar-brand-img-txt(src=site_nav_brand_img_href)
+            | #{bsk_attributes.site_nav_brand_text}
+        else
+            img(src=site_nav_brand_img_href)
+else
+    a.bsk-navbar-brand(href=bsk_attributes.site_nav_brand_href) #{bsk_attributes.site_nav_brand_text}
