@@ -1,0 +1,10 @@
+extends ../../../layouts/bas-style-kit/bsk--base.pug
+
+block append variables
+  - attributes.site_title = 'test title';
+  - attributes.site_description = 'test description';
+  - attributes.site_styles.push({href: 'http://www.example.com/style.css', integrity: 'abc123'});
+  - attributes.site_scripts.push({href: 'http://www.example.com/script.js', integrity: 'abc123'});
+
+block main_content
+  | test content
