@@ -1,0 +1,11 @@
+{
+  "name": "@antarctica/bas-style-kit-pug-templates",
+  "version": "0.1.0",
+  "license": "Open Government Licence 3.0",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "pump": "^2.0.0"
+  }
+}
