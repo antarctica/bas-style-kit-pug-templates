@@ -2,3 +2,15 @@ extends ../../../layouts/bas-style-kit/blank.pug
 
 block content
   | test content
+  
+  table
+    thead: tr
+      th Variable
+      th Value
+    tbody
+      tr
+        td: code bsk_variables.templates_version
+        td #{bsk_variables.templates_version}
+      tr
+        td: code bsk_variables.bsk_version
+        td #{bsk_variables.bsk_version}
