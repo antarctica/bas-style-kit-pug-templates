@@ -9,6 +9,7 @@ services:
       - ./gulpfile.js:/usr/src/app/gulpfile.js
       - ./layouts:/usr/src/app/layouts
       - ./includes:/usr/src/app/includes
+      - ./mixins:/usr/src/app/mixins
       - ./tests:/usr/src/app/tests
 
   web:
