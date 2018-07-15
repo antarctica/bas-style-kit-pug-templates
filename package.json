@@ -1,6 +1,6 @@
 {
   "name": "@antarctica/bas-style-kit-pug-templates",
-  "version": "0.1.0",
+  "version": "0.1.0-develop",
   "license": "Open Government Licence 3.0",
   "devDependencies": {
     "gulp": "^4.0.0",
