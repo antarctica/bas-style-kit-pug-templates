@@ -1,9 +1,10 @@
 extends ./bsk--base.pug
 
 block append variables
-  - bsk_attributes['site_nav_primary'] = [];
-  - bsk_attributes['site_nav_secondary'] = [];
+  - bsk_attributes.site_nav_primary = [];
+  - bsk_attributes.site_nav_secondary = [];
   - bsk_attributes.site_nav_brand_text = 'site name';
+  - bsk_attributes.site_nav_brand_img_href = '';
   - bsk_attributes.site_nav_brand_href = '/';
   - bsk_attributes.site_nav_launcher_extras = [];
   - bsk_attributes.site_development_phase = 'alpha';
@@ -14,10 +15,6 @@ block append variables
   - bsk_attributes.site_footer_policies_cookies_href = '#';
   - bsk_attributes.site_footer_policies_copyright_href = '#';
   - bsk_attributes.site_footer_policies_privacy_href = '#';
-  - bsk_attributes.site_nav_primary.push({title: 'Item', href: '#'});
-  - bsk_attributes.site_nav_primary.push({title: 'Dropdown', items: [{title: 'Sub-item 1', href: '#'}]})
-  - bsk_attributes.site_nav_secondary.push({title: 'Item 2', href: '#'})
-  - bsk_attributes.site_nav_secondary.push({title: 'Dropdown', items: [{title: 'Sub-item 2', href: '#'}]})
 
 block pre_main_content
   include  ../../includes/bas-style-kit/bsk--body--standard-header.pug
