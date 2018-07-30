@@ -9,7 +9,7 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 The recommended method to use these templates is through its NPM package.
 
 ```
-$ npm install -s @antarctica/bas-style-kit-pug-templates
+$ npm i @antarctica/bas-style-kit-pug-templates
 ```
 
 ## Usage
@@ -594,22 +594,17 @@ Merge requests **WILL NOT** be accepted on this mirror.
 To preview the contents of the NPM package:
 
 ```shell
-# Add `entrypoint: ash` and comment out the `command` parameter of the 'app' service in docker-compose.yml
+$ docker-compose run --entrypoint='' app ash
 $ docker-compose run app
-$ ./node_modules/gulp/bin/gulp.js archive
 $ npm pack
-# Undo changes made to docker-compose.yml
 ```
 
 **Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
 
 ```shell
-# Add `entrypoint: ash` and comment out the `command` parameter of the 'app' service in docker-compose.yml
-$ docker-compose run app
-$ ./node_modules/gulp/bin/gulp.js archive
+$ docker-compose run --entrypoint='' app ash
 $ npm login
 $ npm publish
-# Undo changes made to docker-compose.yml
 ```
 
 ### After release

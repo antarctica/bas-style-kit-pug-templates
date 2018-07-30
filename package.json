@@ -1,6 +1,20 @@
 {
   "name": "@antarctica/bas-style-kit-pug-templates",
-  "version": "0.1.0-develop",
+  "version": "0.1.1-develop",
+  "author": "British Antarctic Survey",
+  "contributors": [
+    {
+      "name": "Felix Fennell",
+      "email": "felnne@bas.ac.uk"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antarctica/bas-style-kit-pug-templates.git"
+  },
+  "bugs": {
+    "url": "https://trello.com/b/0Mhzizpk"
+  },
   "license": "Open Government Licence 3.0",
   "devDependencies": {
     "gulp": "^4.0.0",
