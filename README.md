@@ -9,7 +9,7 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 The recommended method to use these templates is through its NPM package.
 
 ```
-$ npm install -s @antarctica/bas-style-kit-pug-templates
+$ npm i @antarctica/bas-style-kit-pug-templates
 ```
 
 ## Usage
