@@ -7,6 +7,17 @@ services:
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.1.0-develop-alpine
     volumes:
       - .:/usr/src/app
+      - ./includes:/usr/src/app/includes
+      - ./layouts:/usr/src/app/layouts
+      - ./mixins:/usr/src/app/mixins
+      - ./tests:/usr/src/app/tests
+      - ./.npmignore:/usr/src/app/.npmignore
+      - ./CHANGELOG.md:/usr/src/app/CHANGELOG.md
+      - ./CONTRIBUTING.md:/usr/src/app/CONTRIBUTING.md
+      - ./gulpfile.js:/usr/src/app/gulpfile.js
+      - ./LICENSE.md:/usr/src/app/LICENSE.md
+      - ./package.json:/usr/src/app/package.json
+      - ./README:/usr/src/app/README
 
   web:
     image: nginx:alpine
