@@ -4,9 +4,8 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.1.0-alpine
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.1.2-alpine
     volumes:
-      - .:/usr/src/app
       - ./includes:/usr/src/app/includes
       - ./layouts:/usr/src/app/layouts
       - ./mixins:/usr/src/app/mixins
