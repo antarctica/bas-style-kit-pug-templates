@@ -32,7 +32,7 @@ Pug's inheritance system.
 To use a standard page layout, create an application layout (e.g. `layouts/app.pug`) with the following:
 
 ```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bsk--standard.pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
 
 block append variables
   - attributes.site_title = 'Example service';
@@ -44,7 +44,7 @@ block append variables
   - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
   - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
   //- Optional
-  - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo='
+  - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo=';
   //- Optional - add a custom CSS file with a relative URL
   - attributes.site_styles.push({href: '/css/app.css'});
   //- Optional - add a custom JS file with a SRI value
@@ -53,9 +53,9 @@ block append variables
   - bsk_attributes.container_class = 'bsk-container';
   //- Optional - add navigation menu items
   - bsk_attributes.site_nav_primary.push({title: 'Item', href: '#'});
-  - bsk_attributes.site_nav_primary.push({title: 'Dropdown', items: [{title: 'Sub-item 1', href: '#'}]})
+  - bsk_attributes.site_nav_primary.push({title: 'Dropdown', items: [{title: 'Sub-item 1', href: '#'}]});
   - bsk_attributes.site_nav_secondary.push({title: 'Item', href: '#'});
-  - bsk_attributes.site_nav_launcher_extras.push({title: 'Related service', href: 'https://example.com'})
+  - bsk_attributes.site_nav_launcher_extras.push({title: 'Related service', href: 'https://example.com'});
 ```
 
 Then create a specific page/view (e.g. `view.pug`) and place some content in the `main_content` block:
