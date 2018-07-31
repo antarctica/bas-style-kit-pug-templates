@@ -582,10 +582,9 @@ Merge requests **WILL NOT** be accepted on this mirror.
   * `layouts/bas-style-kit/blank.pug`:
     * `bsk_variables.templates_version`
 3. push the app docker image [1]
-4. if new config options have been set, update the usage section
-6. close release in changelog
-7. commit changes, merge with master and tag with new version
-8. push the merged release to NPM [2]
+4. close release in changelog
+5. commit changes, merge with master and tag with new version
+6. push the merged release to NPM [2]
 
 **Note:** If the BAS Style Kit version changes, make sure to bump that version in `layouts/bas-style-kit/blank.pug` too.
 
