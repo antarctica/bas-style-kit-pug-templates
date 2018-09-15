@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * Fixing README example typo
+* Including a valid layout in each Pug example
 
 ### Changed
 
@@ -30,6 +31,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Updating NPM dependencies
 * Refactoring local tests to add index and improved directory structure
 * Improving local tests Nginx logging
+* Improving documentation on loading custom, inline, CSS/JS content
 
 ## [0.1.2] - 2018-07-31
 
