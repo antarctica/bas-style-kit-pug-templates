@@ -17,7 +17,7 @@ services:
       - ./gulpfile.js:/usr/src/app/gulpfile.js
       - ./LICENSE.md:/usr/src/app/LICENSE.md
       - ./package.json:/usr/src/app/package.json
-      - ./README:/usr/src/app/README
+      - ./README.md:/usr/src/app/README
 
   web:
     image: nginx:alpine
