@@ -11,6 +11,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
   `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now 
   `bsk--nav-collapse--nav-secondary.pug`
 
+### Added
+
+* Navigation launcher support
+
 ### Fixed
 
 * Fixing README example typo
