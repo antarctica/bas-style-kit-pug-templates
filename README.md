@@ -69,18 +69,45 @@ block main_content
 
 ### Using custom CSS/JS
 
-A mechanism is provided for loading one or more additional CSS an/or JavaScript resources, such as application or 
-website specific styling or interactivity.
+Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific 
+styling or interactivity, either as references to files, or as inline content.
 
-This mechanism is available in all layouts which inherit from the [html](#layoutsbas-style-kithtmlpug) layout.
+This support is available in all layouts which inherit from the [html](#layoutsbas-style-kithtmlpug) layout.
 
-* style resources are outputted in the [styles](#styles-block) block, at the end of the `<head>` element
-* script references are outputted in the [scripts](#scripts-block) block, at the end of the `<body>` element
-* resources are specified as objects, which are added to an array and iterated over to generate appropriate HTML
-* style resource objects should be added to the `attributes.site_styles` variable
-* script resource objects should be added to the `attributes.site_scripts` variable
+For file resources, variables are provided for adding URLs and optional SRI values. Files will be included in the 
+relevant block automatically, after the Style Kit's own resources if a Style Kit layout is used. Inline content can be 
+added manually to these same blocks for loading after files.
 
-**Note:** Custom resources will be referenced after the Style Kit's, to ensure they take priority.
+* CSS resources are outputted in the [styles](#styles-block) block, at the end of the `<head>` element
+* JS resources are outputted in the [scripts](#scripts-block) block, at the end of the `<body>` element
+
+For files:
+
+* CSS files are added as a resource object to the `attributes.site_styles` variable
+* JS files are added as a resource object to the `attributes.site_scripts` variable
+
+For inline content:
+
+* CSS content should be appended to the `styles` block
+* JS content should be appended to the `scripts` block
+
+For example:
+
+```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
+block append variables
+  - attributes.site_scripts.push({href: 'https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js', integrity: 'sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='})
+
+//- ... Other content ...
+
+block append scripts
+  //- Files in site_scripts will be referenced before this content
+  script.
+    console.log('jQuery version: ' + jQuery.fn.jquery);
+```
+
+#### Resource objects
 
 Resource objects have the following properties:
 
@@ -559,11 +586,11 @@ used/implemented.
 
 ### `styles` (block)
 
-Defines a location in the HTML `<head>` element for CSS files. Includes the 
+Defines a location in the HTML `<head>` element for CSS files and inline content. Includes the 
 [head--core-styles](#/includes/bas-style-kit/head--core-styles.pug) include to load CSS files using variables, see
 [Using custom CSS/JS](#using-custom-cssjs) for more information.
 
-If this loading mechanism cannot be used (e.g. inline styles) additional styles, or other components, can be loaded by 
+If this loading mechanism cannot be used (e.g. inline styles) additional styles, or other components, can be added by 
 appending to this block.
 
 E.g.
@@ -573,7 +600,7 @@ block append styles
   //- ... styles/components ...
 ```
 
-If the loading mechanism needs to be disabled, override this block.
+If the loading mechanism needs to be disabled, override this block rather than appending to it.
 
 E.g.
 
@@ -582,16 +609,16 @@ block styles
 //- ... optional replacement styles/components ...
 ```
 
-**Note:** The Style Kit's CSS is referenced using the loading mechanism and will need to be manually referenced if the 
-mechanism is disabled.
+**Note:** The Style Kit's CSS is referenced using the loading mechanism and will need to be manually referenced if it 
+is disabled.
 
 ### `scripts` (block)
 
-Defines a location at the end of the HTML `<body>` element for JavaScript files. Includes the 
+Defines a location at the end of the HTML `<body>` element for JavaScript files and inline content. Includes the 
 [body--core-scripts.pug](#/includes/bas-style-kit/body--core-scripts.pug) include to load JS files using variables, see
 [Using custom CSS/JS](#using-custom-css-js) for more information.
 
-If this loading mechanism cannot be used (e.g. inline scripts) additional JS, or other components, can be loaded by 
+If this loading mechanism cannot be used (e.g. inline scripts) additional JS, or other components, can be added by 
 appending to this block.
 
 E.g.
@@ -601,7 +628,7 @@ block append scripts
   //- ... JS/components ...
 ```
 
-If the loading mechanism needs to be disabled, override this block.
+If the loading mechanism needs to be disabled, override this block rather than appending to it.
 
 E.g.
 
@@ -611,7 +638,7 @@ block scripts
 ```
 
 **Note:** The Style Kit's JS and dependencies are referenced using the loading mechanism and will need to be manually 
-referenced if the mechanism is disabled.
+referenced if it is disabled.
 
 ## Development
 
