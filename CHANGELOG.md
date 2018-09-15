@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * Navigation launcher support
 * Gulp watch support for local tests
+* Support for custom development phases, not recommended for general use
 
 ### Fixed
 
