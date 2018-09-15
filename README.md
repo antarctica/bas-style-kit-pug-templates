@@ -220,11 +220,13 @@ For websites or applications that are not firmly in the 'live' phase, a banner s
 request feedback. This forms part of the 'standard header' of cookie banner, navbar and site development phase banner.
 
 In these templates, the `bsk_attributes.site_development_phase` variable is used to specify the current phase for a
-website or application. When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout a
-banner will be shown automatically based on this variable.
+website or application. When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a banner will be 
+shown automatically based on this variable.
 
 To disable this banner, set the `bsk_attributes.site_development_phase` variable to `live-stable`. This isn't a real 
 phase but separates a newly released website or application from something more mature.
+
+#### Experimental development phase
 
 Alternatively, the `bsk_attributes.site_development_phase` variable can be set to `experimental` to indicate where an
 website or application is used for staging or other development/testing activities.
@@ -409,7 +411,7 @@ Some variables should be changed to make sense, others should not be changed as 
 **Note:** In Pug, variables are simply JavaScript variables so all methods and concepts that can be applied to a regular
 JS variable can be used with these variables too (such as array shifting for example).
 
-These variables should be changed for each website or application:
+These variables should be changed or set for each website or application:
 
 * `attributes.site_title`
 * `attributes.site_description`
@@ -421,7 +423,7 @@ These variables should be changed for each website or application:
 * `bsk_attributes.site_footer_policies_copyright_href`
 * `bsk_attributes.site_footer_policies_privacy_href`
 
-These variables may, but don't need to be, changed for each website or application:
+These variables may, but don't need to be, changed or set for each website or application:
 
 * `attributes.site_favicon_url`
 * `attributes.site_styles`
@@ -431,7 +433,7 @@ These variables may, but don't need to be, changed for each website or applicati
 * `bsk_attributes.site_nav_brand_href`
 * `bsk_attributes.site_nav_launcher`
 
-These variables do not normally, and should not, need to be changed:
+These variables do not normally, and should not, need to be changed or set:
 
 * `attributes.site_back_to_top_target_id`
 * `attributes.site_main_content_target_id`
@@ -484,6 +486,8 @@ These variables must not be changed and should be treated as read only:
 
 Where a value is listed as '*As implemented*' the value set within these templates isn't repeated in this documentation. 
 I.e. the value of the`bsk_variables.templates_version` variable doesn't change how it's used or what it represents.
+
+**Note:** The reference above omits variables used to implement empty objects or arrays, such as `attributes` itself.
 
 ### Blocks
 
