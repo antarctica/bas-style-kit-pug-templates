@@ -12,13 +12,17 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
   `bsk--nav-collapse--nav-secondary.pug`
 * Variable for navigation launcher items, `bsk_attributes.site_nav_launcher_extras` is now 
   `bsk_attributes.site_nav_launcher`
+* Favicons include moved out of `html` layout into `bsk--basic` layout as it is now Style Kit specific
+* favicons support is limited to Style Kit favicons only (unless the include is overriden)
 
 ### Added
 
 * Updated to Style Kit 0.5.0-alpha
 * Full navigation launcher support
-* Gulp watch support for local tests
 * Support for custom development phases, not recommended for general use
+* Block added to `<head>` element include for additional meta tags before CSS files are included
+* Style Kit defined favicon included in pages by default
+* Gulp watch support for local tests
 
 ### Fixed
 
