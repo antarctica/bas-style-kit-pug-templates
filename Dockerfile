@@ -3,7 +3,6 @@ FROM node:carbon-alpine
 LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 
 # Setup project
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Setup project dependencies
