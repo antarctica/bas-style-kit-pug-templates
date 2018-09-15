@@ -48,7 +48,7 @@ block append variables
   //- Optional - add a custom CSS file with a relative URL
   - attributes.site_styles.push({href: '/css/app.css'});
   //- Optional - add a custom JS file with a SRI value
-  - attributes.site_styles.push({href: 'https://example.com/js/example.js', integrity: 'abc123'});
+  - attributes.site_scripts.push({href: 'https://example.com/js/example.js', integrity: 'abc123'});
   //- Optional - choose between the `bsk-container` and `bsk-container-fluid` layout container
   - bsk_attributes.container_class = 'bsk-container';
   //- Optional - add navigation menu items

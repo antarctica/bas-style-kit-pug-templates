@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+
+### Fixed
+
+* Fixing README example typo
+
 ### Changed
 
 * Improving Dockerfile
