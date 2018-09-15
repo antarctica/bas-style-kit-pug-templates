@@ -426,6 +426,7 @@ These variables should be changed or set for each website or application:
 These variables may, but don't need to be, changed or set for each website or application:
 
 * `attributes.site_favicon_url`
+* `attributes.main_content_classes`
 * `attributes.site_styles`
 * `attributes.site_scripts`
 * `bsk_attributes.site_nav_secondary`
@@ -453,36 +454,37 @@ These variables must not be changed and should be treated as read only:
 
 #### Variable reference
 
-| Variable                                                     | Value Type | Allowed Values                                                                                  | Default Value                      | Notes                                                     |
-| ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------- | ---------------------------------- | --------------------------------------------------------- |
-| `attributes.site_title`                                      | String     | Any string                                                                                      | 'site title'                       | Typically 1-3 words                                       |
-| `attributes.site_description`                                | String     | Any string                                                                                      | 'site description'                 | Typically 1-2 sentences                                   |
-| `attributes.site_favicon_url`                                | String     | URL to favicon                                                                                  | *As implemented*                   | Default value is an empty favicon                         |
-| `attributes.site_back_to_top_target_id`                      | String     | CSS ID selector                                                                                 | 'site-top'                         | Set without the ID indicator (`#`)                        |
-| `attributes.site_main_content_target_id`                     | String     | CSS ID selector                                                                                 | 'site-main-content'                | Set without the ID indicator (`#`)                        |
-| `attributes.site_styles`                                     | Array      | Site style object                                                                               | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)            |
-| `attributes.site_scripts`                                    | Array      | Site script object                                                                              | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)            |
-| `bsk_variables.templates_version`                            | String     | Any [SemVer](https://semver.org/) value                                                         | *As implemented*                   | -                                                         |
-| `bsk_variables.bsk_version`                                  | String     | Any BAS Style Kit version                                                                       | *As implemented*                   | -                                                         |
-| `bsk_attributes.container_class`                             | String     | `bsk-container` / `bsk-container-fluid`                                                         | 'bsk-container'                    | -                                                         |
-| `bsk_attributes.site_nav_primary`                            | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)       |
-| `bsk_attributes.site_nav_secondary`                          | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)       |
-| `bsk_attributes.site_nav_launcher`                           | Array      | Site navigation object (with restrictions)                                                      | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)       |
-| `bsk_attributes.site_nav_launcher_title`                     | String     | Any string                                                                                      | 'Part of British Antarctic Survey' | Title of the navigation launcher drop-down menu           |
-| `bsk_attributes.site_nav_brand_text`                         | String     | Any string                                                                                      | 'site name'                        | -                                                         |
-| `bsk_attributes.site_nav_brand_img_href`                     | String     | URL to image                                                                                    | *Empty string*                     | See [Navigation menu branding](#navigation-menu-branding) |
-| `bsk_attributes.site_nav_brand_href`                         | String     | URL to content                                                                                  | '/'                                | See [Navigation menu branding](#navigation-menu-branding) |
-| `bsk_attributes.site_development_phase`                      | String     | `discovery` / `alpha` / `beta` / `live` / `live-stable` / `retired` / `experimental` / `custom` | 'alpha'                            | See [Site development phase](#site-development-phase)     |
-| `bsk_attributes.site_development_phase_custom.label_classes` | Array      | List of CSS classes                                                                             | *Empty array*                      | See [Custom development phase](#custom-development-phase) |
-| `bsk_attributes.site_development_phase_custom.label_text`    | String     | Any string                                                                                      | *Empty string*                     | See [Custom development phase](#custom-development-phase) |
-| `bsk_attributes.site_development_phase_custom.message_text`  | String     | Any string                                                                                      | *Empty string*                     | See [Custom development phase](#custom-development-phase) |
-| `bsk_attributes.site_feedback_href`                          | String     | URL to feedback page or other content (e.g. model overlay)                                      | '#'                                | -                                                         |
-| `bsk_attributes.site_footer_ogl_symbol_a_href`               | String     | URL to OGL information page                                                                     | *As implemented*                   | -                                                         |
-| `bsk_attributes.site_footer_ogl_text_href`                   | String     | URL to OGL information page                                                                     | *As implemented*                   | -                                                         |
-| `bsk_attributes.site_footer_ogl_text_version`                | String     | Any OGL version                                                                                 | *As implemented*                   | -                                                         |
-| `bsk_attributes.site_footer_policies_cookies_href`           | String     | URL to cookies legal policy                                                                     | `#`                                | -                                                         |
-| `bsk_attributes.site_footer_policies_copyright_href`         | String     | URL to copyright legal policy                                                                   | `#`                                | -                                                         |
-| `bsk_attributes.site_footer_policies_privacy_href`           | String     | URL to privacy legal policy                                                                     | `#`                                | -                                                         |
+| Variable                                                     | Value Type | Allowed Values                                                                                  | Default Value                      | Notes                                                                           |
+| ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------- |
+| `bsk_variables.templates_version`                            | String     | Any [SemVer](https://semver.org/) value                                                         | *As implemented*                   | -                                                                               |
+| `bsk_variables.bsk_version`                                  | String     | Any BAS Style Kit version                                                                       | *As implemented*                   | -                                                                               |
+| `attributes.site_title`                                      | String     | Any string                                                                                      | 'site title'                       | Typically 1-3 words                                                             |
+| `attributes.site_description`                                | String     | Any string                                                                                      | 'site description'                 | Typically 1-2 sentences                                                         |
+| `attributes.site_favicon_url`                                | String     | URL to favicon                                                                                  | *As implemented*                   | Default value is an empty favicon                                               |
+| `attributes.site_back_to_top_target_id`                      | String     | CSS ID selector                                                                                 | 'site-top'                         | Set without the ID indicator (`#`)                                              |
+| `attributes.site_main_content_target_id`                     | String     | CSS ID selector                                                                                 | 'site-main-content'                | Set without the ID indicator (`#`)                                              |
+| ``attributes.main_content_classes`                           | Array      | List of CSS classes                                                                             | *Empty array*                      | See the [main_content_container](#main_content_container_container-block) block |
+| `attributes.site_styles`                                     | Array      | Site style object                                                                               | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
+| `attributes.site_scripts`                                    | Array      | Site script object                                                                              | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
+| `bsk_attributes.container_class`                             | String     | `bsk-container` / `bsk-container-fluid`                                                         | 'bsk-container'                    | -                                                                               |
+| `bsk_attributes.site_nav_primary`                            | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
+| `bsk_attributes.site_nav_secondary`                          | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
+| `bsk_attributes.site_nav_launcher`                           | Array      | Site navigation object (with restrictions)                                                      | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
+| `bsk_attributes.site_nav_launcher_title`                     | String     | Any string                                                                                      | 'Part of British Antarctic Survey' | Title of the navigation launcher drop-down menu                                 |
+| `bsk_attributes.site_nav_brand_text`                         | String     | Any string                                                                                      | 'site name'                        | -                                                                               |
+| `bsk_attributes.site_nav_brand_img_href`                     | String     | URL to image                                                                                    | *Empty string*                     | See [Navigation menu branding](#navigation-menu-branding)                       |
+| `bsk_attributes.site_nav_brand_href`                         | String     | URL to content                                                                                  | '/'                                | See [Navigation menu branding](#navigation-menu-branding)                       |
+| `bsk_attributes.site_development_phase`                      | String     | `discovery` / `alpha` / `beta` / `live` / `live-stable` / `retired` / `experimental` / `custom` | 'alpha'                            | See [Site development phase](#site-development-phase)                           |
+| `bsk_attributes.site_development_phase_custom.label_classes` | Array      | List of CSS classes                                                                             | *Empty array*                      | See [Custom development phase](#custom-development-phase)                       |
+| `bsk_attributes.site_development_phase_custom.label_text`    | String     | Any string                                                                                      | *Empty string*                     | See [Custom development phase](#custom-development-phase)                       |
+| `bsk_attributes.site_development_phase_custom.message_text`  | String     | Any string                                                                                      | *Empty string*                     | See [Custom development phase](#custom-development-phase)                       |
+| `bsk_attributes.site_feedback_href`                          | String     | URL to feedback page or other content (e.g. model overlay)                                      | '#'                                | -                                                                               |
+| `bsk_attributes.site_footer_ogl_symbol_a_href`               | String     | URL to OGL information page                                                                     | *As implemented*                   | -                                                                               |
+| `bsk_attributes.site_footer_ogl_text_href`                   | String     | URL to OGL information page                                                                     | *As implemented*                   | -                                                                               |
+| `bsk_attributes.site_footer_ogl_text_version`                | String     | Any OGL version                                                                                 | *As implemented*                   | -                                                                               |
+| `bsk_attributes.site_footer_policies_cookies_href`           | String     | URL to cookies legal policy                                                                     | `#`                                | -                                                                               |
+| `bsk_attributes.site_footer_policies_copyright_href`         | String     | URL to copyright legal policy                                                                   | `#`                                | -                                                                               |
+| `bsk_attributes.site_footer_policies_privacy_href`           | String     | URL to privacy legal policy                                                                     | `#`                                | -                                                                               |
 
 Where a value is listed as '*As implemented*' the value set within these templates isn't repeated in this documentation. 
 I.e. the value of the`bsk_variables.templates_version` variable doesn't change how it's used or what it represents.
@@ -533,13 +535,20 @@ Defines a location for content that should be shown after any main content (such
 
 Defines a location for any elements which should wrap around main page/view content (such as layout containers).
 
-**Note:** If overridden, this block **MUST** reference the `main_content` block.
+If overridden, this block **MUST**:
+
+* include the `main_content` block
+
+If overridden, this block **SHOULD**:
+
+* apply the `#site-main-content` selector ID
+* apply the classes set by the `attributes.main_content_classes` variable
 
 E.g.
 
 ```pug
 block main_content_container
-  main#site-main-content  //- or other wrapper content
+  main#site-main-content(class=attributes.main_content_classes)
     block main_content
 ```
 
