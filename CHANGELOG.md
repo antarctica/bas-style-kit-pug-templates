@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed [BREAKING!]
+
+* Refactoring navigation menu includes, `bsk--nav-collapse--primary-nav.pug` is now 
+  `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now 
+  `bsk--nav-collapse--nav-secondary.pug`
 
 ### Fixed
 
