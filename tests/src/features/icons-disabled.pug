@@ -1,0 +1,9 @@
+extends ../../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - bsk_attributes.site_development_phase = 'experimental';
+
+block main_content
+  | test content, no icons here, there isn't a non-icon for the 'back to top' link - #[a(href='../../') back to index].
