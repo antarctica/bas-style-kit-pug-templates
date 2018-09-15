@@ -1,0 +1,14 @@
+extends ../../../layouts/bas-style-kit/html.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - attributes.main_content_classes.push('x-test');
+
+block main_content
+  style.
+    .x-test span {
+      color: red;
+    }
+
+  | test content, #[span.x-test this text should be red] - #[a(href='../../') back to index].
