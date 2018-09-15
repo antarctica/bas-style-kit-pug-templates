@@ -26,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* Icon uses replaced with alternatives or removed where not needed due to the removal of Font Awesome
 * Improving Dockerfile
 * Improving README
 * Updating NPM dependencies

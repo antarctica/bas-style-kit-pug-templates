@@ -1,0 +1,17 @@
+extends ../../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - attributes.site_styles.push({href: 'https://cdn.web.bas.ac.uk/libs/font-awesome-pro/5.3.1/css/all.css'});
+
+block main_content
+  | test content, with icons (loaded additionally)! - #[a(href='../../') back to index].
+
+  div
+    div: i.far.fa-grin
+    div Icon from Font Awesome 5 (free)
+  div
+    div: i.fas.fa-lightbulb-on
+    div Icon from Font Awesome 5 (pro)
