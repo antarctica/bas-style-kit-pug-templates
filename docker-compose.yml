@@ -5,6 +5,7 @@ services:
   app:
     build: .
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.2.0-develop-alpine
+    command: ['watch']
     volumes:
       - ./includes:/usr/src/app/includes
       - ./layouts:/usr/src/app/layouts

@@ -18,6 +18,8 @@ gulp.task('build', gulp.parallel(
   'build--pug'
 ));
 
+gulp.task('watch', watchBuild);
+
 function buildPugTests(done) {
   pump(
     [
@@ -30,4 +32,17 @@ function buildPugTests(done) {
     ],
     done
   );
+}
+
+function watchBuild(done) {
+  gulp.watch(
+    [
+      path.join('includes', '**/*.pug'),
+      path.join('layouts', '**/*.pug'),
+      path.join('mixins', '**/*.pug'),
+      path.join('tests', 'src', '**/*.pug')
+    ],
+    gulp.parallel('build')
+  );
+  done();
 }
