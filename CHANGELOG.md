@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * Improving Dockerfile
+* Updating NPM dependencies
 
 ## [0.1.2] - 2018-07-31
 
