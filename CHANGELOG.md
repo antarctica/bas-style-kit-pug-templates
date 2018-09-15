@@ -10,11 +10,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Refactoring navigation menu includes, `bsk--nav-collapse--primary-nav.pug` is now 
   `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now 
   `bsk--nav-collapse--nav-secondary.pug`
+* Variable for navigation launcher items, `bsk_attributes.site_nav_launcher_extras` is now 
+  `bsk_attributes.site_nav_launcher`
 
 ### Added
 
-* Navigation launcher support
+* Full navigation launcher support
 * Gulp watch support for local tests
+* Support for custom development phases, not recommended for general use
 
 ### Fixed
 
