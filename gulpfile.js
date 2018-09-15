@@ -22,11 +22,11 @@ function buildPugTests(done) {
   pump(
     [
       gulp.src([
-        path.join('tests', 'layouts', 'bas-style-kit', '*.pug')
+        path.join('tests', 'src', '**/*.pug')
       ]),
       rename({extname: '.html'}),
       pug(),
-      gulp.dest(path.join('tests', 'public', 'layouts'))
+      gulp.dest(path.join('tests', 'public'))
     ],
     done
   );

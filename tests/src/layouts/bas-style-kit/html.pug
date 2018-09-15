@@ -1,0 +1,10 @@
+extends ../../../../layouts/bas-style-kit/html.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - attributes.site_styles.push({href: 'http://www.example.com/style.css', integrity: 'abc123'});
+  - attributes.site_scripts.push({href: 'http://www.example.com/script.js', integrity: 'abc123'});
+
+block main_content
+  | test content - #[a(href='../../') back to index].
