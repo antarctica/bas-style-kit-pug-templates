@@ -1,7 +1,8 @@
 head
   include ./head--core-metadata.pug
   include ./head--seo-metadata.pug
-  include ./head--favicon.pug
+
+  block pre_head_styles
 
   block styles
     include ./head--core-styles.pug

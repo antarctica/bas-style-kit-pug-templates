@@ -43,8 +43,6 @@ block append variables
   - bsk_attributes.site_footer_policies_cookies_href = '/legal/cookies';
   - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
   - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
-  //- Optional
-  - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo=';
   //- Optional - add a custom CSS file with a relative URL
   - attributes.site_styles.push({href: '/css/app.css'});
   //- Optional - add a custom JS file with a SRI value
@@ -404,7 +402,7 @@ before and afterwards. Also defines a block for JS files references or inline sc
 * type: *non-generic*
 * kind: *aggregate*
 
-Defines a `<head>` HTML element with a block for CSS file references or inline styles.
+Defines a `<head>` HTML element with includes for core meta tags and blocks for additional metadata and CSS
 
 ### Mixins
 
@@ -454,10 +452,10 @@ These variables should be changed or set for each website or application:
 
 These variables may, but don't need to be, changed or set for each website or application:
 
-* `attributes.site_favicon_url`
 * `attributes.main_content_classes`
 * `attributes.site_styles`
 * `attributes.site_scripts`
+* `bsk_attributes.site_favicon`
 * `bsk_attributes.site_nav_secondary`
 * `bsk_attributes.site_nav_brand_img_href`
 * `bsk_attributes.site_nav_brand_href`
@@ -489,12 +487,12 @@ These variables must not be changed and should be treated as read only:
 | `bsk_variables.bsk_version`                                  | String     | Any BAS Style Kit version                                                                       | *As implemented*                   | -                                                                               |
 | `attributes.site_title`                                      | String     | Any string                                                                                      | 'site title'                       | Typically 1-3 words                                                             |
 | `attributes.site_description`                                | String     | Any string                                                                                      | 'site description'                 | Typically 1-2 sentences                                                         |
-| `attributes.site_favicon_url`                                | String     | URL to favicon                                                                                  | *As implemented*                   | Default value is an empty favicon                                               |
 | `attributes.site_back_to_top_target_id`                      | String     | CSS ID selector                                                                                 | 'site-top'                         | Set without the ID indicator (`#`)                                              |
 | `attributes.site_main_content_target_id`                     | String     | CSS ID selector                                                                                 | 'site-main-content'                | Set without the ID indicator (`#`)                                              |
 | `attributes.main_content_classes`                            | Array      | List of CSS classes                                                                             | *Empty array*                      | See the [main_content_container](#main_content_container_container-block) block |
 | `attributes.site_styles`                                     | Array      | Site style object                                                                               | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
 | `attributes.site_scripts`                                    | Array      | Site script object                                                                              | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
+| `bsk_attributes.site_favicon`                                | String     | `default`                                                                                       | 'default'                          | The favicon to use, use 'default' the standard BAS favicon                      |
 | `bsk_attributes.container_class`                             | String     | `bsk-container` / `bsk-container-fluid`                                                         | 'bsk-container'                    | -                                                                               |
 | `bsk_attributes.site_nav_primary`                            | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
 | `bsk_attributes.site_nav_secondary`                          | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
@@ -536,6 +534,7 @@ In these templates blocks are defined in layouts:
   * [variables](#variables-block)
   * [content](#content-block)
 * [layouts/bas-style-kit/html.pug](#layoutsbas-style-kithtmlpug)
+  * [pre_head_styles](#pre_head_styles-block)
   * [pre_main_content](#pre_main_content-block)
   * [main_content_container](#main_content_container_container-block)
   * [main_content](#main_content_container-block)
@@ -551,6 +550,10 @@ should be defined within this block. See the [Variables](#variables) section for
 ### `content` (block)
 
 Primitive block defining a location to hold content.
+
+### `pre_head_styles` (block)
+
+Defines a location for extra `<head>` content, such as meta-tags for RSS feeds, favicons etc. before any CSS styles.
 
 ### `pre_main_content` (block)
 
