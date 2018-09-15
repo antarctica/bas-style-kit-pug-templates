@@ -275,6 +275,8 @@ To use a custom phase, these variables will need to be set:
 For example:
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bsk--standard.pug
+
 block append variables
   - bsk_attributes.site_development_phase = 'custom';
   - bsk_attributes.site_development_phase_custom.label_classes.push('bsk-label')
@@ -574,6 +576,8 @@ If overridden, this block **SHOULD**:
 E.g.
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
 block main_content_container
   main#site-main-content(class=attributes.main_content_classes)
     block main_content
@@ -596,6 +600,8 @@ appending to this block.
 E.g.
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
 block append styles
   //- ... styles/components ...
 ```
@@ -605,6 +611,8 @@ If the loading mechanism needs to be disabled, override this block rather than a
 E.g.
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
 block styles
 //- ... optional replacement styles/components ...
 ```
@@ -624,6 +632,8 @@ appending to this block.
 E.g.
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
 block append scripts
   //- ... JS/components ...
 ```
@@ -633,6 +643,8 @@ If the loading mechanism needs to be disabled, override this block rather than a
 E.g.
 
 ```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
 block scripts
 //- ... optional replacement JS/components ...
 ```
