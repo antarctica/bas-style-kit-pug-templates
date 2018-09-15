@@ -1,0 +1,10 @@
+include ../../mixins/bas-style-kit/bsk--nav.pug
+
+if bsk_attributes.site_nav_launcher
+    ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+        li.bsk-dropdown
+            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | #{ bsk_attributes.site_nav_launcher_title } #[span.bsk-caret]
+            ul.bsk-dropdown-menu
+                each item in bsk_attributes.site_nav_launcher
+                    li: a(href=item.href) #{item.title}

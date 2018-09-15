@@ -3,10 +3,13 @@ extends ./bsk--base.pug
 block append variables
   - bsk_attributes.site_nav_primary = [];
   - bsk_attributes.site_nav_secondary = [];
+  - bsk_attributes.site_nav_launcher = [];
   - bsk_attributes.site_nav_brand_text = 'site name';
   - bsk_attributes.site_nav_brand_img_href = '';
   - bsk_attributes.site_nav_brand_href = '/';
-  - bsk_attributes.site_nav_launcher_extras = [];
+  - bsk_attributes.site_nav_launcher.unshift({title: 'Discover BAS data', href: 'https://data.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher.unshift({title: 'BAS home', href: 'https://www.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher_title = 'Part of British Antarctic Survey';
   - bsk_attributes.site_development_phase = 'alpha';
   - bsk_attributes.site_feedback_href = '#';
   - bsk_attributes.site_footer_ogl_symbol_a_href = 'http://www.nationalarchives.gov.uk/doc/open-government-licence';

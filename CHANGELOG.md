@@ -5,6 +5,29 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed [BREAKING!]
+
+* Refactoring navigation menu includes, `bsk--nav-collapse--primary-nav.pug` is now 
+  `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now 
+  `bsk--nav-collapse--nav-secondary.pug`
+
+### Added
+
+* Navigation launcher support
+* Gulp watch support for local tests
+
+### Fixed
+
+* Fixing README example typo
+
+### Changed
+
+* Improving Dockerfile
+* Improving README
+* Updating NPM dependencies
+* Refactoring local tests to add index and improved directory structure
+* Improving local tests Nginx logging
+
 ## [0.1.2] - 2018-07-31
 
 ### Fixed
