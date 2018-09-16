@@ -40,6 +40,7 @@ function watchBuild(done) {
       path.join('includes', '**/*.pug'),
       path.join('layouts', '**/*.pug'),
       path.join('mixins', '**/*.pug'),
+      path.join('views', '**/*.pug'),
       path.join('tests', 'src', '**/*.pug')
     ],
     gulp.parallel('build')

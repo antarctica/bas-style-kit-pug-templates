@@ -1,0 +1,10 @@
+extends ../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.main_content_classes.push('bsk-pattern-page-not-found');
+
+block main_content
+  h1.bsk-page-header Page not found
+  p If you typed the web address, check it is correct.
+  p If you pasted the web address, check you copied the entire address.
+  p If the web address is correct or you selected a link or button, #[a(href=bsk_attributes.site_feedback_href) contact us] to let us know.

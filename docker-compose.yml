@@ -10,6 +10,7 @@ services:
       - ./includes:/usr/src/app/includes
       - ./layouts:/usr/src/app/layouts
       - ./mixins:/usr/src/app/mixins
+      - ./views:/usr/src/app/views
       - ./tests:/usr/src/app/tests
       - ./.npmignore:/usr/src/app/.npmignore
       - ./CHANGELOG.md:/usr/src/app/CHANGELOG.md

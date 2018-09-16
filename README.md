@@ -18,6 +18,7 @@ These templates are designed to be as modular as practical, to allow specific co
 
 Components consist of:
 
+* [views](#views)
 * [layouts](#layouts)
 * [includes](#includes)
 * [mixins](#mixins)
@@ -29,7 +30,10 @@ Pug's inheritance system.
 
 ### Quickstart
 
-To use a standard page layout, create an application layout (e.g. `layouts/app.pug`) with the following:
+#### Standard page
+
+To create a page in an application or website based on the standard BAS page structure, create an application layout 
+(e.g. `layouts/app.pug`) with the following:
 
 ```pug
 extends ../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
@@ -64,6 +68,36 @@ block main_content
   header: h1 Example content
   div ...
 ```
+
+#### Use a page pattern
+
+To create a page in an application or website based on a [page design pattern](#patterns), create a view 
+(e.g. `views/error.pug`) with the following:
+
+```pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/views/bas-style-kit/bsk--page-not-found.pug
+
+block append variables
+  - attributes.site_title = 'Example service';
+  - attributes.site_description = 'Service to act as an example';
+  - bsk_attributes.site_nav_brand_text = 'Example service';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_footer_policies_cookies_href = '/legal/cookies';
+  - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
+  - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
+```
+
+### Patterns
+
+Design patterns are used to demonstrate preferred ways to pass on information to users, or ask them for information.
+For example, information to show when a service is unavailable, formatting dates consistently or asking users for their
+username in a consistent way. See the [Style Kit documentation](https://style-kit.web.bas.ac.uk/patterns) for more 
+information.
+
+These patterns are implemented by these templates based on the reference examples included in the Style Kit. These 
+include patterns for:
+
+* [pages](#page-patterns) - standalone pages designed to be used without customisation, defined as [Views](#views)
 
 ### Using custom CSS/JS
 
@@ -297,6 +331,15 @@ Non-generic components are prefixed with `bsk--` (e.g. `layouts/bas-style-kit/bs
 
 **Note:** Generic components make no reference to the Style Kit itself and so could, in theory, be used as with other 
 or no framework, however this is not officially supported and must not be relied upon.
+
+### Views
+
+These templates use views for implementing [page patterns](#page-patterns). They are essentially layouts but with 
+predefined page content relevant to each pattern.
+
+Views are designed to be work 'out of the box', without the need for customisation in each website or application 
+relatives are intended to be small and easily understand. They are only documented here where they are more complex or
+require additional context.
 
 ### Layouts
 
