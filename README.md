@@ -6,11 +6,7 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 
 ### NPM package
 
-The recommended method to use these templates is through its NPM package.
-
-```
-$ npm i @antarctica/bas-style-kit-pug-templates
-```
+The recommended method to get these templates is through its NPM package, `@antarctica/bas-style-kit-pug-templates`
 
 ## Usage
 
@@ -18,6 +14,7 @@ These templates are designed to be as modular as practical, to allow specific co
 
 Components consist of:
 
+* [views](#views)
 * [layouts](#layouts)
 * [includes](#includes)
 * [mixins](#mixins)
@@ -29,7 +26,10 @@ Pug's inheritance system.
 
 ### Quickstart
 
-To use a standard page layout, create an application layout (e.g. `layouts/app.pug`) with the following:
+#### Standard page
+
+To create a page in an application or website based on the standard BAS page structure, create an application layout 
+(e.g. `layouts/app.pug`) with the following:
 
 ```pug
 extends ../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
@@ -64,6 +64,36 @@ block main_content
   header: h1 Example content
   div ...
 ```
+
+#### Use a page pattern
+
+To create a page in an application or website based on a [page design pattern](#patterns), create a view 
+(e.g. `views/error.pug`) with the following:
+
+```pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/views/bas-style-kit/bsk--page-not-found.pug
+
+block append variables
+  - attributes.site_title = 'Example service';
+  - attributes.site_description = 'Service to act as an example';
+  - bsk_attributes.site_nav_brand_text = 'Example service';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_footer_policies_cookies_href = '/legal/cookies';
+  - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
+  - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
+```
+
+### Patterns
+
+Design patterns are used to demonstrate preferred ways to pass on information to users, or ask them for information.
+For example, information to show when a service is unavailable, formatting dates consistently or asking users for their
+username in a consistent way. See the [Style Kit documentation](https://style-kit.web.bas.ac.uk/patterns) for more 
+information.
+
+These patterns are implemented by these templates based on the reference examples included in the Style Kit. These 
+include patterns for:
+
+* [pages](#page-patterns) - standalone pages designed to be used without customisation, defined as [Views](#views)
 
 ### Using custom CSS/JS
 
@@ -297,6 +327,15 @@ Non-generic components are prefixed with `bsk--` (e.g. `layouts/bas-style-kit/bs
 
 **Note:** Generic components make no reference to the Style Kit itself and so could, in theory, be used as with other 
 or no framework, however this is not officially supported and must not be relied upon.
+
+### Views
+
+These templates use views for implementing [page patterns](#page-patterns). They are essentially layouts but with 
+predefined page content relevant to each pattern.
+
+Views are designed to be work 'out of the box', without the need for customisation in each website or application 
+relatives are intended to be small and easily understand. They are only documented here where they are more complex or
+require additional context.
 
 ### Layouts
 
@@ -542,28 +581,28 @@ In these templates blocks are defined in layouts:
   * [styles](#styles-block)
   * [scripts](#scripts-block)
 
-### `variables` (block)
+#### `variables` (block)
 
 Primitive block defining a location to hold (Pug) variables apart from content. All variables related to these templates 
 should be defined within this block. See the [Variables](#variables) section for more information.
 
-### `content` (block)
+#### `content` (block)
 
 Primitive block defining a location to hold content.
 
-### `pre_head_styles` (block)
+#### `pre_head_styles` (block)
 
 Defines a location for extra `<head>` content, such as meta-tags for RSS feeds, favicons etc. before any CSS styles.
 
-### `pre_main_content` (block)
+#### `pre_main_content` (block)
 
 Defines a location for content that should be shown before any main content (such as headers or navigation).
 
-### `post_main_content` (block)
+#### `post_main_content` (block)
 
 Defines a location for content that should be shown after any main content (such as footers).
 
-### `main_content_container` (block)
+#### `main_content_container` (block)
 
 Defines a location for any elements which should wrap around main page/view content (such as layout containers).
 
@@ -586,12 +625,12 @@ block main_content_container
     block main_content
 ```
 
-### `main_content` (block)
+#### `main_content` (block)
 
 Defines a location for content forming a specific page/view. This is typically the only block that needs to be 
 used/implemented.
 
-### `styles` (block)
+#### `styles` (block)
 
 Defines a location in the HTML `<head>` element for CSS files and inline content. Includes the 
 [head--core-styles](#/includes/bas-style-kit/head--core-styles.pug) include to load CSS files using variables, see
@@ -623,7 +662,7 @@ block styles
 **Note:** The Style Kit's CSS is referenced using the loading mechanism and will need to be manually referenced if it 
 is disabled.
 
-### `scripts` (block)
+#### `scripts` (block)
 
 Defines a location at the end of the HTML `<body>` element for JavaScript files and inline content. Includes the 
 [body--core-scripts.pug](#/includes/bas-style-kit/body--core-scripts.pug) include to load JS files using variables, see

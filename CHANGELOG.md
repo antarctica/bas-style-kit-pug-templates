@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * Updated to Style Kit 0.5.0-alpha
+* Support for design patterns
 * Full navigation launcher support
 * Support for custom development phases, not recommended for general use
 * Block added to `<head>` element include for additional meta tags before CSS files are included

@@ -1,10 +1,6 @@
-extends ../../../layouts/bas-style-kit/bsk--base.pug
+extends ../../../../views/bas-style-kit/bsk--page-not-found.pug
 
 block append variables
   - attributes.site_title = 'BAS Style Kit Pug Templates';
   - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
-  - bsk_attributes.site_favicon = 'not-default';
   - bsk_attributes.site_development_phase = 'experimental';
-
-block main_content
-  | test content, check there isn't a favicon - #[a(href='../../') back to index].
