@@ -696,7 +696,57 @@ referenced if it is disabled.
 
 ## Development
 
-...
+### Updating dependencies
+
+If `package.json` is changed the project image will need to be rebuilt and pushed to the private BAS Docker 
+Repository [1].
+
+```shell
+$ cd bas-style-kit-pug-templates/
+$ docker-compose build app
+$ docker-compose push app
+```
+
+Periodically, dependencies should be updated to their latest versions and conflicts resolved. 
+
+The project Docker image should use the latest Node LTS release (as we don't rely on cutting edge Node features), JavaScript dependencies should be updated to their latest versions [2].
+
+Dependencies listed in `package.json` can be checked using tools such as
+[Daivd-DM](https://david-dm.org/antarctica/bas-style-kit-pug-templates?type=dev) to identify outdated versions.
+
+[1] The first time you use this registry, you will need to authenticate using:
+`docker login docker-registry.data.bas.ac.uk`
+
+[2] To update dependencies:
+
+```shell
+# add or update package to 'package.json'
+$ rm yarn.lock
+$ docker-compose build app
+$ docker-compose run --entrypoint="" app ash
+$ mv yarn.lock ./assets/
+$ exit
+$ docker-compose down
+$ mv assets/yarn.lock ./
+```
+
+**Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
+
+#### Dependency vulnerability scanning
+
+To ensure the security of this project, and users of the Style Kit, all dependencies are checked against
+[Snyk]() for vulnerabilities.
+
+Through [Continuous Integration](#continuous-integration), on each commit current dependencies are tested and a snapshot
+uploaded to Snyk. This snapshot is then monitored for vulnerabilities.
+
+## Testing
+
+### Continuous Integration
+
+The BAS GitLab instance is used for
+[Continuous Integration](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/pipelines) using
+ settings defined in `.gitlab-ci.yml`.
 
 ## GitHub mirror
 
