@@ -6,11 +6,7 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 
 ### NPM package
 
-The recommended method to use these templates is through its NPM package.
-
-```
-$ npm i @antarctica/bas-style-kit-pug-templates
-```
+The recommended method to get these templates is through its NPM package, `@antarctica/bas-style-kit-pug-templates`
 
 ## Usage
 
@@ -585,28 +581,28 @@ In these templates blocks are defined in layouts:
   * [styles](#styles-block)
   * [scripts](#scripts-block)
 
-### `variables` (block)
+#### `variables` (block)
 
 Primitive block defining a location to hold (Pug) variables apart from content. All variables related to these templates 
 should be defined within this block. See the [Variables](#variables) section for more information.
 
-### `content` (block)
+#### `content` (block)
 
 Primitive block defining a location to hold content.
 
-### `pre_head_styles` (block)
+#### `pre_head_styles` (block)
 
 Defines a location for extra `<head>` content, such as meta-tags for RSS feeds, favicons etc. before any CSS styles.
 
-### `pre_main_content` (block)
+#### `pre_main_content` (block)
 
 Defines a location for content that should be shown before any main content (such as headers or navigation).
 
-### `post_main_content` (block)
+#### `post_main_content` (block)
 
 Defines a location for content that should be shown after any main content (such as footers).
 
-### `main_content_container` (block)
+#### `main_content_container` (block)
 
 Defines a location for any elements which should wrap around main page/view content (such as layout containers).
 
@@ -629,12 +625,12 @@ block main_content_container
     block main_content
 ```
 
-### `main_content` (block)
+#### `main_content` (block)
 
 Defines a location for content forming a specific page/view. This is typically the only block that needs to be 
 used/implemented.
 
-### `styles` (block)
+#### `styles` (block)
 
 Defines a location in the HTML `<head>` element for CSS files and inline content. Includes the 
 [head--core-styles](#/includes/bas-style-kit/head--core-styles.pug) include to load CSS files using variables, see
@@ -666,7 +662,7 @@ block styles
 **Note:** The Style Kit's CSS is referenced using the loading mechanism and will need to be manually referenced if it 
 is disabled.
 
-### `scripts` (block)
+#### `scripts` (block)
 
 Defines a location at the end of the HTML `<body>` element for JavaScript files and inline content. Includes the 
 [body--core-scripts.pug](#/includes/bas-style-kit/body--core-scripts.pug) include to load JS files using variables, see
