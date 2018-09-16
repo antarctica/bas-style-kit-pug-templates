@@ -1,0 +1,50 @@
+---
+
+# == Notes ==
+
+# - GitLab automatically passes artifacts from previous stages by default
+# - Set required secret variables at: https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/settings/ci_cd
+
+# = Secret variables
+# - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
+#   Sensetive values are represented by "[Sensetive]"
+#
+# - Snyk
+# > SNYK_TOKEN: "[Sensitive]"
+
+# == Global settings ==
+
+stages:
+  - setup
+  - security
+
+image:
+  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.2.0-develop-alpine
+  entrypoint: [""]
+
+variables:
+  APP_NAME: bas-style-kit-pug-templates
+  SNYK_ORG: antarctica
+  SNYK_PROJECT_NAME: bas-style-kit-pug-templates
+
+# == Jobs ==
+
+node-dependencies:
+  stage: setup
+  script:
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-node-dependencies"
+    paths:
+      - node_modules
+    expire_in: 1 hour
+
+check-dependencies:
+  stage: security
+  image:
+    name: snyk/snyk-cli:npm
+    entrypoint: [""]
+  script:
+    - "snyk test"
+    - "snyk monitor --project-name=$SNYK_PROJECT_NAME --org=$SNYK_ORG"

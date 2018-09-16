@@ -23,6 +23,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Support for custom development phases, not recommended for general use
 * Block added to `<head>` element include for additional meta tags before CSS files are included
 * Style Kit defined favicon included in pages by default
+* Continuous Integration using GitLab
+* Snyk dependency vulnerability scanning
 * Gulp watch support for local tests
 
 ### Fixed
