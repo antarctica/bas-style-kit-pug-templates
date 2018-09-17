@@ -15,7 +15,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Variable for navigation launcher items, `bsk_attributes.site_nav_launcher_extras` is now 
   `bsk_attributes.site_nav_launcher`
 * Favicons include moved out of `html` layout into `bsk--basic` layout as it is now Style Kit specific
-* favicons support is limited to Style Kit favicons only (unless the include is overriden)
+* Favicons support is limited to Style Kit favicons only (unless the include is overriden)
+* Icon uses replaced with alternatives or removed where not needed due to the removal of Font Awesome
 
 ### Added
 
@@ -36,7 +37,6 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
-* Icon uses replaced with alternatives or removed where not needed due to the removal of Font Awesome
 * Improving Dockerfile
 * Improving README
 * Updating NPM dependencies
