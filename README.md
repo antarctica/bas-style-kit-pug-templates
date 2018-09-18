@@ -735,7 +735,7 @@ $ mv assets/yarn.lock ./
 #### Dependency vulnerability scanning
 
 To ensure the security of this project, and users of the Style Kit, all dependencies are checked against
-[Snyk]() for vulnerabilities.
+[Snyk](https://app.snyk.io/org/antarctica/project/75fd391e-fbf1-4016-b8f1-f333b5c8ab04) for vulnerabilities.
 
 Through [Continuous Integration](#continuous-integration), on each commit current dependencies are tested and a snapshot
 uploaded to Snyk. This snapshot is then monitored for vulnerabilities.
