@@ -69,8 +69,23 @@ block main_content
 
 #### Use a page pattern
 
-To create a page in an application or website based on a [page design pattern](#patterns), create a view 
+To create a page in an application or website based on a [page design pattern](#page-patterns), create a view 
 (e.g. `views/error.pug`) with the following:
+
+```pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/views/bas-style-kit/[page-pattern].pug
+
+block append variables
+  - attributes.site_title = 'Example service';
+  - attributes.site_description = 'Service to act as an example';
+  - bsk_attributes.site_nav_brand_text = 'Example service';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_footer_policies_cookies_href = '/legal/cookies';
+  - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
+  - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
+```
+
+Where `[page-pattern]` in the extends value is the name of a page pattern, for example:
 
 ```pug
 extends ../node_modules/@antarctica/bas-style-kit-pug-templates/views/bas-style-kit/bsk--page-not-found.pug
@@ -96,6 +111,17 @@ These patterns are implemented by these templates based on the reference example
 include patterns for:
 
 * [pages](#page-patterns) - standalone pages designed to be used without customisation, defined as [Views](#views)
+
+#### Page patterns
+
+These template include views for all page patterns. In most cases all variants of a pattern use the same view, but with
+different options. Variables and blocks are used as relevant for setting page content.
+
+See the [Style Kit documentation](https://style-kit.web.bas.ac.uk) for general information on using these patterns.
+
+##### 'page not found' pattern
+
+No configuration options.
 
 ### Using custom CSS/JS
 
