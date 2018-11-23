@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* Google Analytics support
 * Updated to Style Kit 0.5.0-beta
 * Improved developer documentation
 

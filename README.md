@@ -47,6 +47,8 @@ block append variables
   - attributes.site_styles.push({href: '/css/app.css'});
   //- Optional - add a custom JS file with a SRI value
   - attributes.site_scripts.push({href: 'https://example.com/js/example.js', integrity: 'abc123'});
+  //- Optional - enable Google Analaytics
+  - attributes.site_analytics.id = '1234';
   //- Optional - choose between the `bsk-container` and `bsk-container-fluid` layout container
   - bsk_attributes.container_class = 'bsk-container';
   //- Optional - add navigation menu items
@@ -313,6 +315,22 @@ block append variables
   - bsk_attributes.site_development_phase_custom.message_text = 'This is an example of a design pattern, which are best practice design solutions for specific user-focused tasks and page types.';
 ```
 
+### Site analytics
+
+These templates support loading the Google Analaytics universal tracking script (gtag). This script is only loaded if
+configured. If configured, the anonymise IP option is used by default.
+
+To use, set the `attributes.site_analytics.id` value to the relevant Google Analytics property ID.
+
+For example:
+
+```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
+
+block append variables
+  - attributes.site_analytics.id = '1234';
+```
+
 ## Components
 
 Components in these templates are grouped by their kind (e.g. `layouts/foo.pug`). They are then namespaced in a 
@@ -423,7 +441,7 @@ Includes can be split into two forms:
 Complex features, such as navigation menus, may be implemented using a hierarchy of aggregate and feature includes, 
 again to allow specific aspects to be overridden, without needing to duplicate aspects that don't need to be changed.
 
-Includes are intended to be small and easily understand. They are only documented here where they are more complex or
+Includes are intended to be small and easily understood. They are only documented here where they are more complex or
 require additional context.
 
 #### `/includes/bas-style-kit/body.pug`
@@ -481,6 +499,7 @@ These variables should be changed or set for each website or application:
 
 * `attributes.site_title`
 * `attributes.site_description`
+* `attributes.site_analytics.id`
 * `bsk_attributes.site_nav_brand_text`
 * `bsk_attributes.site_nav_primary`
 * `bsk_attributes.site_development_phase`
@@ -531,6 +550,8 @@ These variables must not be changed and should be treated as read only:
 | `attributes.main_content_classes`                            | Array      | List of CSS classes                                                                             | *Empty array*                      | See the [main_content_container](#main_content_container_container-block) block |
 | `attributes.site_styles`                                     | Array      | Site style object                                                                               | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
 | `attributes.site_scripts`                                    | Array      | Site script object                                                                              | *Empty array*                      | See [Using custom CSS/JS](#using-custom-cssjs)                                  |
+| `attributes.site_analytics`                                  | Object     | Site analytics object                                                                           | *Empty object*                     | See [Site analytics](#site-analytics)                                           |
+| `attributes.site_analytics.id`                               | String     | Google Analytics property ID                                                                    | *Not set*                          | See [Site analytics](#site-analytics)                                           |
 | `bsk_attributes.site_favicon`                                | String     | `default`                                                                                       | 'default'                          | The favicon to use, use 'default' the standard BAS favicon                      |
 | `bsk_attributes.container_class`                             | String     | `bsk-container` / `bsk-container-fluid`                                                         | 'bsk-container'                    | -                                                                               |
 | `bsk_attributes.site_nav_primary`                            | Array      | Site navigation object                                                                          | *Empty array*                      | See [Navigation menu items](#navigation-menu-items)                             |
