@@ -423,7 +423,7 @@ Includes can be split into two forms:
 Complex features, such as navigation menus, may be implemented using a hierarchy of aggregate and feature includes, 
 again to allow specific aspects to be overridden, without needing to duplicate aspects that don't need to be changed.
 
-Includes are intended to be small and easily understand. They are only documented here where they are more complex or
+Includes are intended to be small and easily understood. They are only documented here where they are more complex or
 require additional context.
 
 #### `/includes/bas-style-kit/body.pug`
