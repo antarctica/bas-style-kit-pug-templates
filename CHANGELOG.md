@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.3.0] - 2018-11-23
+
 ### Added
 
 * 'Problem with this service' (basic) page pattern variant
@@ -20,6 +22,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Google Analytics support
 * Updated to Style Kit 0.5.0-beta
 * Improved developer documentation
+
+### Changed
+
+* Adopting SPDX compliant reference for OGL
 
 ## [0.2.0] - 2018-09-16
 

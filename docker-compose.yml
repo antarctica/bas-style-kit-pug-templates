@@ -4,7 +4,7 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.3.0-develop-alpine
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.3.0-alpine
     command: ['watch']
     volumes:
       - ./includes:/usr/src/app/includes
