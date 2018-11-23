@@ -1,7 +1,11 @@
-extends ../../../../views/bas-style-kit/bsk--page-not-found.pug
+extends ../../../../views/bas-style-kit/bsk--service-unavailable.pug
 
 block append variables
   - attributes.site_title = 'BAS Style Kit Pug Templates';
   - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
   - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Pug Templates';
   - bsk_attributes.site_development_phase = 'experimental';
+  - pattern_attributes.availability = 'You will be able to use this service on the 24th August 2012 from 14:00 (UTC).'
+
+block pattern_content
+  p Contact the #[a(href='mailto:team@example.com') Example team] for more information.
