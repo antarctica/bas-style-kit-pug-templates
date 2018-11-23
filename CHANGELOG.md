@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* Improved developer documentation
+
 ## [0.2.0] - 2018-09-16
 
 ### Changed [BREAKING!]
