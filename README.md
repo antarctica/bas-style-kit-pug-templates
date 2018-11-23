@@ -859,7 +859,7 @@ Merge requests **WILL NOT** be accepted on this mirror.
   * `docker-compose.yml`
   * `layouts/bas-style-kit/blank.pug`:
     * `bsk_variables.templates_version`
-3. push the app docker image [1]
+3. build and push the app docker image [1]
 4. close release in changelog
 5. commit changes, merge with master and tag with new version
 6. push the merged release to NPM [2]
