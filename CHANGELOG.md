@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* 'Problem with this service' (basic) page pattern variant
+* 'Problem with this service' (contact) page pattern variant
+* 'Problem with this service' (alternative) page pattern variant
 * 'Service unavailable' (contact) page pattern variant
 * 'Service unavailable' (availability) page pattern variant
 * 'Service unavailable' (alternative) page pattern variant
