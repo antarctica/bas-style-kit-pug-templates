@@ -696,6 +696,34 @@ referenced if it is disabled.
 
 ## Development
 
+Source code for this project is available from two repositories:
+
+* [BAS GitLab](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates) (canonical, private)
+* [BAS GitHub](https://github.com/antarctica/bas-style-kit-pug-templates) (read-only mirror, public)
+
+To create a local development environment using the *GitLab* repository [1]:
+
+```
+$ git clone https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates.git
+$ cd bas-style-kit-pug-templates/
+$ docker-compose pull
+$ docker-compose up
+```
+
+To create a local development environment using the *GitHub* repository:
+
+```
+$ git clone https://github.com/antarctica/bas-style-kit-pug-templates.git
+$ cd bas-style-kit-pug-templates/
+$ docker-compose build
+$ docker-compose up
+```
+
+This will create a local website designed for testing the layouts, views and some other features of these templates 
+using the [Gulp](https://gulpjs.com/) task manager. The pug templates are used
+
+Visit [localhost:9000](http://localhost:9000) to access the local website.
+
 ### Updating dependencies
 
 If `package.json` is changed the project image will need to be rebuilt and pushed to the private BAS Docker 

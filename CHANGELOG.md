@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* Updated to Style Kit 0.5.0-beta
+* Improved developer documentation
+
 ## [0.2.0] - 2018-09-16
 
 ### Changed [BREAKING!]
