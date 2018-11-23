@@ -855,6 +855,7 @@ Merge requests **WILL NOT** be accepted on this mirror.
 
 1. create a release branch
 2. remove `-develop` from the version in:
+  * `.gitlab-ci.yml`
   * `package.json`
   * `docker-compose.yml`
   * `layouts/bas-style-kit/blank.pug`:
@@ -887,6 +888,7 @@ $ npm publish
 ### After release
 
 1. bump the version with `-develop` as a prefix in:
+  * `.gitlab-ci.yml`
   * `package.json`
   * `docker-compose.yml`
   * `layouts/bas-style-kit/blank.pug`:
