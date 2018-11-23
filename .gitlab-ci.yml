@@ -17,6 +17,7 @@
 stages:
   - setup
   - security
+  - build
 
 image:
   name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.3.0-develop-alpine
@@ -48,3 +49,13 @@ check-dependencies:
   script:
     - "snyk test"
     - "snyk monitor --project-name=$SNYK_PROJECT_NAME --org=$SNYK_ORG"
+
+compile-pug:
+  stage: build
+  script:
+    - "./node_modules/gulp/bin/gulp.js build"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-tests-public"
+    paths:
+      - tests/public
+    expire_in: 1 week
