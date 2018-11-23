@@ -1,0 +1,11 @@
+extends ../../../layouts/bas-style-kit/html.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - attributes.site_analytics.id = 'UA-64130716-44';
+
+block main_content
+  | check this page view is logged in Google Analytics 
+  | (under the #[a(href='https://analytics.google.com/analytics/web/#/report-home/a64130716w188999371p185475480') Style Kit Testbed property])
+  | - #[a(href='../') back to index]

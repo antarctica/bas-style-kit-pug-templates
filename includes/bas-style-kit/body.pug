@@ -10,4 +10,6 @@ block post_main_content
 
 block scripts
   include ./body--core-scripts.pug
+  if attributes.site_analytics.id
+    include body--analytics-script.pug
   //- Use 'block append scripts' in templates inheriting from this layout to include other scripts
