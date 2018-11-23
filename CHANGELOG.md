@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Fixed 
+
+* Added missing GitLab CI file from release procedures
+
 ## [0.3.0] - 2018-11-23
 
 ### Added
