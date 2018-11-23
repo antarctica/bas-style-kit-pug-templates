@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* 'Service unavailable' (contact) page pattern variant
+* 'Service unavailable' (availability) page pattern variant
+* 'Service unavailable' (alternative) page pattern variant
+* 'Service unavailable' (partly closed) page pattern variant
+* 'Service unavailable' (closed) page pattern variant
+* 'Service unavailable' (replaced) page pattern variant
 * Pug templates compiled as part of CI to check for syntax errors
 * Google Analytics support
 * Updated to Style Kit 0.5.0-beta

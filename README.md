@@ -123,6 +123,19 @@ See the [Style Kit documentation](https://style-kit.web.bas.ac.uk) for general i
 
 No configuration options.
 
+##### 'service unavailable' pattern
+
+An optional `pattern_content` block is available for:
+
+* contact information
+* details of alternative services
+
+An optional `pattern_attributes.availability` variable is available for setting the availability line:
+
+* a value of `closed` will show conventional text
+* a value of `replaced` will show conventional text
+* no value will show conventional text
+
 ### Using custom CSS/JS
 
 Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific 
