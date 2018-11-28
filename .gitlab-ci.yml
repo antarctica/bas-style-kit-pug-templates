@@ -20,7 +20,7 @@ stages:
   - build
 
 image:
-  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.4.0-alpine
+  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/app:0.5.0-develop-alpine
   entrypoint: [""]
 
 variables:
