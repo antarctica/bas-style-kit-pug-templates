@@ -1,0 +1,34 @@
+extends ../../../../views/bas-style-kit/bsk--start.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Pug Templates';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - pattern_attributes.availability = 'replaced'
+
+block pattern_content
+  section.bsk-service-uses
+    h2 Use this service to:
+    ul
+      li access some information
+      li perform an action
+      li etc.
+  
+  section.bsk-call-to-action
+    a.bsk-btn.bsk-btn-primary.bsk-btn-lg 
+      | Start Now 
+      i.fa-fw.fas.fa-chevron-right
+
+  section.bsk-before-you-start
+    h2.bsk-h3 Before you start
+    p You need some information to use this service.
+    p You will need to #[a(href='#') contact the Sample Team] to be allowed to perform an action.
+    p You can also use #[a(href='#') Another service] to do something similar.
+    p It typically takes 30 minutes to perform an action.
+    p You can save your progress and continue later if needed.
+
+  section.bsk-more-information
+    h2.bsk-h3 More information
+    p See the #[a(href='#') BAS Digital Workplace] for information on how to use this service.
+    p You can also #[a(href='#') contact the Sample Team] for additional support.
