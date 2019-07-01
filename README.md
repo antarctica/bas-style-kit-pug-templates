@@ -651,7 +651,6 @@ To preview the contents of the NPM package:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ docker-compose run app
 $ npm pack
 ```
 
@@ -691,7 +690,7 @@ The maintainer of this project is the BAS Web & Applications Team, they can be c
 
 ## License
 
-© UK Research and Innovation (UKRI), 2018, British Antarctic Survey.
+© UK Research and Innovation (UKRI), 2018 - 2019, British Antarctic Survey.
 
 You may use and re-use this software and associated documentation files free of charge in any format or medium, under 
 the terms of the Open Government Licence v3.0.
