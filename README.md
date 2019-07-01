@@ -6,23 +6,10 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 
 ### NPM package
 
-The recommended method to get these templates is through its NPM package, `@antarctica/bas-style-kit-pug-templates`
+The recommended method to get these templates is through its NPM package, 
+[`@antarctica/bas-style-kit-pug-templates`](https://www.npmjs.com/package/@antarctica/bas-style-kit).
 
 ## Usage
-
-These templates are designed to be as modular as practical, to allow specific components to be changed or replaced. 
-
-Components consist of:
-
-* [views](#views)
-* [layouts](#layouts)
-* [includes](#includes)
-* [mixins](#mixins)
-* [variables](#variables) (defined in either layouts or includes)
-* [blocks](#blocks) (defined in either layouts or includes)
-
-In a typical implementation, only a layout needs to be specified. Other required components will be brought in by 
-Pug's inheritance system.
 
 ### Quickstart
 
@@ -225,7 +212,7 @@ the Style Kit's own resources.
 
 ### Navigation menu items
 
-Whwn using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a 
+When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a 
 [navbar](https://style-kit.web.bas.ac.uk/components/navbar/) is included as part of the 'standard header', which 
 consists of a cookie banner, navbar and site development phase banner.
 
@@ -363,10 +350,10 @@ block append variables
 
 ### Site analytics
 
-These templates support loading the Google Analaytics universal tracking script (gtag). This script is only loaded if
-configured. If configured, the anonymise IP option is used by default.
+To include the Google Analytics universal tracking library (gtag), set the `attributes.site_analytics.id` property to 
+relevant Google Analytics property ID.
 
-To use, set the `attributes.site_analytics.id` value to the relevant Google Analytics property ID.
+**Note:** When used the anonymise IP option in Google Analytics is enabled by default.
 
 For example:
 
@@ -379,164 +366,94 @@ block append variables
 
 ## Components
 
-Components in these templates are grouped by their kind (e.g. `layouts/foo.pug`). They are then namespaced in a 
+Components in these templates are grouped by their kind (e.g. `layouts/foo.pug`). They are also namespaced in a 
 `bas-style-kit` directory (e.g. `layouts/bas-style-kit/foo.pug`).
 
-Components can be further divided into:
-
-* *generic* components - minimal and neutral on which more opinionated components can be based
-* *non-generic* components - which implement the Style Kit and some opinionated structures/layouts
-
-Non-generic components are prefixed with `bsk--` (e.g. `layouts/bas-style-kit/bsk--foo.pug`).
-
-**Note:** Generic components make no reference to the Style Kit itself and so could, in theory, be used as with other 
-or no framework, however this is not officially supported and must not be relied upon.
+Components that are specific to the Style Kit are prefixed with `bsk--`.
 
 ### Views
 
-These templates use views for implementing [page patterns](#page-patterns). They are essentially layouts but with 
-predefined page content relevant to each pattern.
-
-Views are designed to be work 'out of the box', without the need for customisation in each website or application 
-relatives are intended to be small and easily understand. They are only documented here where they are more complex or
-require additional context.
+Views are used for implementing [page patterns](#page-patterns). They are essentially layouts but with predefined page
+content relevant to each pattern.
 
 ### Layouts
 
-Use the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, or if more flexibility is needed 
-[bsk--base](#/layouts/bas-style-kit/bsk--base.pug), unless you have a good reason.
+Layouts are 'base' templates from which views or other layouts inherit. Layouts in these templates are hierarchical,
+with each layout extending the last in this order:
 
-The generic layouts offered are only intended to act as a foundation for BAS Style Kit specific layouts. They are not
-indented to be used directly.
+* `blank.pug`: lowest level layout, intentionally as minimal as possible and not intended for direct use, unless
+  non-HTML output is needed
+* `html.pug`: defines a minimal, accessible, HTML5 structure with some recommended best practices for cross-platform
+  compatibility
+* `bsk_base.html`: intentionally implements the BAS Style Kit as minimally as possible and not intended for direct use,
+  unless the bsk_standard.j2 layout is unsuitable
+* `bsk_standard.html`: defines an opinionated, conventional, page layout with a 'standard' header/footer, recommended 
+  as a base for application/website layouts
 
-**Note:** It is strongly recommended to use an application specific layout as an abstraction. This would inherit one of
-these layouts, but prevents large numbers of views being directly dependent and gives a logical place for website or
-application wide variables to be set.
+Layouts can be used using the extend keyword and defining content in the relevant [block](#blocks):
 
-#### `/layouts/bas-style-kit/blank.pug`
+| Layout              | Content Block  |
+| ------------------- | -------------- |
+| `blank.pug`         | `content`      |
+| `html.pug`          | `main_content` |
+| `bsk_base.html`     | `main_content` |
+| `bsk_standard.html` | `main_content` |
 
-* type: *generic*
-* inherits from: *None*
-* implementation example: [tests/.../blank.pug](/tests/layouts/bas-style-kit/html.pug).
+```pug
+extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
 
-Defines lowest-level blocks and variables to be used and extended by other layouts/components.
+block main_content
+  p Layout content
+```
 
-This layout is intentionally as minimal as possible and not intended for direct use, unless non-HTML output is needed.
+### Blocks
 
-Page/view content should be placed in the `content` block.
+[Blocks](https://pugjs.org/language/inheritance.html) are used for template inheritance and provide a logical 
+structure/hierarchy.
 
-#### `/layouts/bas-style-kit/html.pug`
+Blocks are defined in [Layouts](#layouts), typically with default content using [Includes](#includes). Some blocks are 
+empty, designed for user content or extensibility.
 
-* type: *generic*
-* inherits from: [blank](#layoutsbas-style-kitblankpug)
-* implementation example: [tests/.../html.pug](/tests/layouts/bas-style-kit/html.pug).
+To implement or override a block, redefine it in a template or view:
 
-Extends the *blank* generic layout with blocks, variables and includes specific to HTML based content.
+```pug
+block example_block
+  p content ...
+```
 
-Defines a minimal, accessible, HTML5 structure with some recommended best practices for cross-platform compatibility.
+To append to a block, without overriding its existing content, use `append block`:
 
-Includes the mechanism for [using custom CSS and JS resources](#using-custom-cssjs).
-
-Page/view content should be placed in the `main-content` block.
-
-#### `/layouts/bas-style-kit/bsk--base.pug`
-
-* type: *non-generic*
-* inherits from: [html](#layoutsbas-style-kithtmlpug)
-* implementation example: [tests/.../bsk--base.pug](/tests/layouts/bas-style-kit/bsk--base.pug).
-
-Extends the *html* generic layout with includes and variables specific to the Style Kit.
-
-References the Style Kit's CSS and JS files before any [custom CSS/JS](#using-custom-cssjs) files.
-
-Page content is placed in a [layout container](https://style-kit.web.bas.ac.uk/core/layout/#containers) with an ID 
-`#site-main-content`. The class of the container can be set using the `bsk_attributes.container_class` variable.
-
-This layout is only recommended where the [bsk--standard.pug](#layoutsbas-style-kitbsk-standardpug) layout is
-unsuitable.
-
-Page/view content should be placed in the `main-content` block.
-
-#### `/layouts/bas-style-kit/bsk--standard.pug`
-
-* type: *non-generic*
-* inherits from: [bsk--base.pug](#/layouts/bas-style-kit/bsk--base.pug)
-* implementation example: [tests/.../bsk--standard.pug](/tests/layouts/bas-style-kit/bsk--standard.pug).
-
-Extends the *bsk--base* layout with includes and variables to create a more opinionated, but typical, structure for 
-content including the standard header (cookie notice, navbar, site development phase) and standard footer before and 
-after main content.
-
-See the [navigation menu items](#navigation-menu-items), [navigation menu branding](#navigation-menu-branding) and
-[site development phase](#site-development-phase) sections for more information.
-
-This layout is recommended to base application layouts on, unless a non-typical structure is needed.
-
-Page/view content should be placed in the `main-content` block.
+```pug
+append block example_block
+  p appended content ...
+```
 
 ### Includes
 
-These templates use includes extensively to allow greater customisation and modularity. Specific elements or 
-functionality can be changed by overriding an include.
+[Includes](https://pugjs.org/language/includes.html) are used for organising content, to make management easier, and to 
+allow common elements to be used in multiple places, typically in [Blocks](#blocks).
 
-Includes can be split into two forms:
-
-* *feature includes* - which implement a single feature, such as displaying the site title
-* *aggregate includes* - which include other includes, such as the elements in a footer
-
-Complex features, such as navigation menus, may be implemented using a hierarchy of aggregate and feature includes, 
-again to allow specific aspects to be overridden, without needing to duplicate aspects that don't need to be changed.
-
-Includes are intended to be small and easily understood. They are only documented here where they are more complex or
-require additional context.
-
-#### `/includes/bas-style-kit/body.pug`
-
-* type: *non-generic*
-* kind: *aggregate*
-
-Replaces the `content` block defined in the [blank](#layoutsbas-style-kitblankpug) layout with a `<body>` element.
-
-This creates a more complex structure with main content wrapped in one or more elements with additional content shown
-before and afterwards. Also defines a block for JS files references or inline scripts.
-
-#### `/includes/bas-style-kit/head.pug`
-
-* type: *non-generic*
-* kind: *aggregate*
-
-Defines a `<head>` HTML element with includes for core meta tags and blocks for additional metadata and CSS
+For example the content needed for [using Google Analytics](#google-analytics) is encapsulated in the 
+`body--analytics-script.pug` include.
 
 ### Mixins
 
-Mixins define common functionality in the form of functions which can optionally accept arguments and other attributes.
-They help reduce duplication improving maintainability.
+[Mixins](https://pugjs.org/language/mixins.html) are used to provide configurable, reusable, functionality.
 
-#### `/mixins/bas-style-kit/bsk--nav.pug`
+For example, primary and secondary [navigation menus](#navigation-menu-items) process navigation items the same way, 
+using the `bsk--nav.pug` macro.
 
-* type: *non-generic*
 
-Renders a navigation menu consisting of [navbar items](https://style-kit.web.bas.ac.uk/components/navbar/#item) 
-and/or [navbar dropdown menu items](https://style-kit.web.bas.ac.uk/components/navbar/#drop-down-menus).
 
-See the [Navigation menu items](#navigation-menu-items) section for more information on defining navigation menu items.
+
+
+
 
 ### Variables
 
-These templates use variables extensively to allow greater customisation and modularity. As with other components, 
-variables relating specifically to implementing the Style Kit are prefixed, in this case with `bsk_`.
-
-Typically variables are placed into objects rather than being set in the global scope, for example a generic variable 
-`foo` will be set as `variables.foo` and a non-generic variable as `bsk_variables.foo`.
-
-Some variables are objects or arrays themselves, their usage will be explained in more detail where needed.
-
-#### Changing variables
-
-Variables can be overridden by redefining them and specifying a different value in another pug template, such as an 
-application specific layout. 
-
-Some variables should be changed to make sense, others should not be changed as they're internal to these templates.
+Various elements in these templates are configurable, such as the name of the application or website, or the CSS/JS 
+resources to include. A JavaScript object is used to configure these elements and should be passed to the Pug 
+environment.
 
 **Note:** In Pug, variables are simply JavaScript variables so all methods and concepts that can be applied to a regular
 JS variable can be used with these variables too (such as array shifting for example).
@@ -623,143 +540,6 @@ Where a value is listed as '*As implemented*' the value set within these templat
 I.e. the value of the`bsk_variables.templates_version` variable doesn't change how it's used or what it represents.
 
 **Note:** The reference above omits variables used to implement empty objects or arrays, such as `attributes` itself.
-
-### Blocks
-
-In Pug, Blocks act as placeholders for content, which can include actual content such as text, lists, images, etc. and
-other Pug components such as includes, variables and other blocks (i.e. blocks can be nested).
-
-The contents of a block can be set in a layout, where it is effectively global, or on a page/view basis. Blocks can also
-be overridden or appended to (i.e. global content replaced/appended in specific views/pages).
-
-Blocks are not considered *generic* or *non-generic* components.
-
-In these templates blocks are defined in layouts:
-
-* [layouts/bas-style-kit/blank.pug](#layoutsbas-style-kitblankpug)
-  * [variables](#variables-block)
-  * [content](#content-block)
-* [layouts/bas-style-kit/html.pug](#layoutsbas-style-kithtmlpug)
-  * [pre_head_styles](#pre_head_styles-block)
-  * [pre_main_content](#pre_main_content-block)
-  * [main_content_container](#main_content_container_container-block)
-  * [main_content](#main_content_container-block)
-  * [post_main_content](#post_main_content_container-block)
-  * [styles](#styles-block)
-  * [scripts](#scripts-block)
-
-#### `variables` (block)
-
-Primitive block defining a location to hold (Pug) variables apart from content. All variables related to these templates 
-should be defined within this block. See the [Variables](#variables) section for more information.
-
-#### `content` (block)
-
-Primitive block defining a location to hold content.
-
-#### `pre_head_styles` (block)
-
-Defines a location for extra `<head>` content, such as meta-tags for RSS feeds, favicons etc. before any CSS styles.
-
-#### `pre_main_content` (block)
-
-Defines a location for content that should be shown before any main content (such as headers or navigation).
-
-#### `post_main_content` (block)
-
-Defines a location for content that should be shown after any main content (such as footers).
-
-#### `main_content_container` (block)
-
-Defines a location for any elements which should wrap around main page/view content (such as layout containers).
-
-If overridden, this block **MUST**:
-
-* include the `main_content` block
-
-If overridden, this block **SHOULD**:
-
-* apply the `#site-main-content` selector ID
-* apply the classes set by the `attributes.main_content_classes` variable
-
-E.g.
-
-```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
-
-block main_content_container
-  main#site-main-content(class=attributes.main_content_classes)
-    block main_content
-```
-
-#### `main_content` (block)
-
-Defines a location for content forming a specific page/view. This is typically the only block that needs to be 
-used/implemented.
-
-#### `styles` (block)
-
-Defines a location in the HTML `<head>` element for CSS files and inline content. Includes the 
-[head--core-styles](#/includes/bas-style-kit/head--core-styles.pug) include to load CSS files using variables, see
-[Using custom CSS/JS](#using-custom-cssjs) for more information.
-
-If this loading mechanism cannot be used (e.g. inline styles) additional styles, or other components, can be added by 
-appending to this block.
-
-E.g.
-
-```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
-
-block append styles
-  //- ... styles/components ...
-```
-
-If the loading mechanism needs to be disabled, override this block rather than appending to it.
-
-E.g.
-
-```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
-
-block styles
-//- ... optional replacement styles/components ...
-```
-
-**Note:** The Style Kit's CSS is referenced using the loading mechanism and will need to be manually referenced if it 
-is disabled.
-
-#### `scripts` (block)
-
-Defines a location at the end of the HTML `<body>` element for JavaScript files and inline content. Includes the 
-[body--core-scripts.pug](#/includes/bas-style-kit/body--core-scripts.pug) include to load JS files using variables, see
-[Using custom CSS/JS](#using-custom-css-js) for more information.
-
-If this loading mechanism cannot be used (e.g. inline scripts) additional JS, or other components, can be added by 
-appending to this block.
-
-E.g.
-
-```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
-
-block append scripts
-  //- ... JS/components ...
-```
-
-If the loading mechanism needs to be disabled, override this block rather than appending to it.
-
-E.g.
-
-```pug
-extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
-
-block scripts
-//- ... optional replacement JS/components ...
-```
-
-**Note:** The Style Kit's JS and dependencies are referenced using the loading mechanism and will need to be manually 
-referenced if it is disabled.
 
 ## Development
 
