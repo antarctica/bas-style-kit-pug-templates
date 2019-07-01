@@ -5,9 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* Updated to Style Kit 0.6.0-alpha
+
 ### Changed
 
 * Refactoring and simplifying README
+* Docker images are no longer versioned
 
 ## [0.4.0] - 2018-11-28
 
