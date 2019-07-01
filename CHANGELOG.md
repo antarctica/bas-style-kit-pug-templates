@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* 'Start' page pattern
+* 'Sign in' (Microsoft) page pattern variant
 * Updated to Style Kit 0.6.0-alpha
 
 ### Changed

@@ -1,0 +1,10 @@
+extends ../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - var pattern_attributes = {};
+  - attributes.main_content_classes.push('bsk-pattern-start');
+
+block main_content  
+  h1.bsk-page-header #{ bsk_attributes.site_nav_brand_text }
+
+  block pattern_content
