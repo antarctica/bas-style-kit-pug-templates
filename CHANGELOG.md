@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * Refactoring and simplifying README
+* Docker images are no longer versioned
 
 ## [0.4.0] - 2018-11-28
 
