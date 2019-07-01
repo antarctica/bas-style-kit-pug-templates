@@ -1,0 +1,21 @@
+extends ../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - var pattern_attributes = {};
+  - attributes.main_content_classes.push('bsk-pattern-sign-in');
+
+block main_content  
+  h1.bsk-page-header Please sign-in to continue
+  p.bsk-lead We need to check you are allowed to use this part of this service.
+
+  section.bsk-call-to-action
+    a.bsk-btn.bsk-btn-ms-account.bsk-btn-lg
+      object.bsk-ms-pictogram(type='image/svg+xml' data='https://cdn.web.bas.ac.uk/bas-style-kit/' + bsk_variables.bsk_version + '/img/logos-symbols/ms-pictogram.svg')
+      | 
+      | Sign in to continue
+
+  section.bsk-sign-in-information
+    p Use the account you use for your NERC email to sign into this service.
+    p #[a(href='mailto:servicedesk@bas.ac.uk') Contact the IT Service Desk] if you are unable to sign in.
+
+  block pattern_content
