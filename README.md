@@ -130,6 +130,61 @@ An optional `pattern_content` block is available for:
 * contact information
 * details of alternative services
 
+#### 'start' pattern
+
+A `pattern_content_uses` block is available for the 'Use this service to:' section. Pass a unordered list of uses:
+
+```pug
+block pattern_content_type
+  ul
+    li use
+    li another use
+```
+
+A `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call to action
+button.
+
+```pug
+block append variables
+  - pattern_attributes.call_to_action_href = '#'
+```
+
+If the call to action should be a 'Sign-in to Start' button, set the `pattern_attributes.call_to_action_variant` 
+variable to `sign-in-microsoft`.
+
+```pug
+block append variables
+  - pattern_attributes.call_to_action_variant = 'sign-in-microsoft'
+```
+
+An optional `pattern_content` block is available for:
+
+* 'before you start' information
+* more information
+
+```pug
+block pattern_content
+  section.bsk-before-you-start
+    h2.bsk-h3 Before you start
+    p You need some information to use this service.
+
+  section.bsk-more-information
+    h2.bsk-h3 More information
+    p Some additional information
+```
+
+#### 'sign-in' pattern
+
+A `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call to action
+button.
+
+```pug
+block append variables
+  - pattern_attributes.call_to_action_href = '#'
+```
+
+An optional `pattern_content` block is available for any additional information.
+
 ### Using custom CSS/JS
 
 Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific 
