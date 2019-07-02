@@ -190,7 +190,7 @@ An optional `pattern_content` block is available for any additional information.
 Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific 
 styling or interactivity, either as references to files, or as inline content.
 
-This support is available in all layouts which inherit from the [html](#layoutsbas-style-kithtmlpug) layout.
+This support is available in all layouts which inherit from the `html.pug` layout.
 
 For file resources, variables are provided for adding URLs and optional SRI values. Files will be included in the 
 relevant block automatically, after the Style Kit's own resources if a Style Kit layout is used. Inline content can be 
@@ -215,7 +215,7 @@ For example:
 extends node_modules/@antarctica/bas-style-kit-pug-templates/layouts/html.pug
 
 block append variables
-  - attributes.site_scripts.push({href: 'https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js', integrity: 'sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='})
+  - attributes.site_scripts.push({href: 'https://cdn.web.bas.ac.uk/libs/jquery/3.3.1/jquery-3.3.1.min.js', integrity: 'sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='})
 
 //- ... Other content ...
 
@@ -440,9 +440,9 @@ with each layout extending the last in this order:
   non-HTML output is needed
 * `html.pug`: defines a minimal, accessible, HTML5 structure with some recommended best practices for cross-platform
   compatibility
-* `bsk_base.html`: intentionally implements the BAS Style Kit as minimally as possible and not intended for direct use,
+* `bsk--base.pug`: intentionally implements the BAS Style Kit as minimally as possible and not intended for direct use,
   unless the bsk_standard.j2 layout is unsuitable
-* `bsk_standard.html`: defines an opinionated, conventional, page layout with a 'standard' header/footer, recommended 
+* `bsk--standard.pug`: defines an opinionated, conventional, page layout with a 'standard' header/footer, recommended 
   as a base for application/website layouts
 
 Layouts can be used using the extend keyword and defining content in the relevant [block](#blocks):
@@ -497,12 +497,6 @@ For example the content needed for [using Google Analytics](#google-analytics) i
 
 For example, primary and secondary [navigation menus](#navigation-menu-items) process navigation items the same way, 
 using the `bsk--nav.pug` macro.
-
-
-
-
-
-
 
 ### Variables
 
