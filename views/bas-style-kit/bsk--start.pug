@@ -3,8 +3,27 @@ extends ../../layouts/bas-style-kit/bsk--standard.pug
 block append variables
   - var pattern_attributes = {};
   - attributes.main_content_classes.push('bsk-pattern-start');
+  - pattern_attributes.call_to_action_href = '#'
+  - pattern_attributes.call_to_action_variant = 'default'
 
-block main_content  
+block main_content 
   h1.bsk-page-header #{ bsk_attributes.site_nav_brand_text }
+
+  section.bsk-service-uses
+    h2 Use this service to:
+    block pattern_content_uses
+
+  section.bsk-call-to-action
+    if pattern_attributes.call_to_action_variant == 'sign-in-microsoft'
+      button.bsk-btn.bsk-btn-ms-account.bsk-btn-lg
+        object.bsk-ms-pictogram(type='image/svg+xml' data='https://cdn.web.bas.ac.uk/bas-style-kit/' + bsk_variables.bsk_version + '/img/logos-symbols/ms-pictogram.svg')
+        |
+        | Sign in to Start
+        i.fa-fw.fas.fa-chevron-right
+      p.bsk-sign-in-hint.bsk-text-muted Use the account you use for your NERC email to sign into this service.
+    else
+      a.bsk-btn.bsk-btn-primary.bsk-btn-lg(href=pattern_attributes.call_to_action_href)
+        | Start Now
+        i.fa-fw.fas.fa-chevron-right
 
   block pattern_content

@@ -3,13 +3,14 @@ extends ../../layouts/bas-style-kit/bsk--standard.pug
 block append variables
   - var pattern_attributes = {};
   - attributes.main_content_classes.push('bsk-pattern-sign-in');
+  - pattern_attributes.call_to_action_href = '#'
 
 block main_content  
   h1.bsk-page-header Please sign-in to continue
   p.bsk-lead We need to check you are allowed to use this part of this service.
 
   section.bsk-call-to-action
-    a.bsk-btn.bsk-btn-ms-account.bsk-btn-lg
+    a.bsk-btn.bsk-btn-ms-account.bsk-btn-lg(href=pattern_attributes.call_to_action_href)
       object.bsk-ms-pictogram(type='image/svg+xml' data='https://cdn.web.bas.ac.uk/bas-style-kit/' + bsk_variables.bsk_version + '/img/logos-symbols/ms-pictogram.svg')
       | 
       | Sign in to continue

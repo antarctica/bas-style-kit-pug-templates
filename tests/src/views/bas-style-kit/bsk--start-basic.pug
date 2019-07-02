@@ -1,0 +1,15 @@
+extends ../../../../views/bas-style-kit/bsk--start.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - attributes.site_styles.push({href: 'https://cdn.web.bas.ac.uk/libs/jquery/3.3.1/jquery-3.3.1.min.js', integrity: 'sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='})
+  - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Pug Templates';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - pattern_attributes.call_to_action_href = '#'
+
+block pattern_content_uses
+  ul
+    li access some information
+    li perform an action
+    li etc.
