@@ -6,7 +6,7 @@ A set of Pug templates implementing the [BAS Style Kit](https://style-kit.web.ba
 
 ### NPM package
 
-The recommended method to get these templates is through its NPM package, 
+The recommended method to get these templates is through its NPM package,
 [`@antarctica/bas-style-kit-pug-templates`](https://www.npmjs.com/package/@antarctica/bas-style-kit).
 
 ## Usage
@@ -15,7 +15,7 @@ The recommended method to get these templates is through its NPM package,
 
 #### Standard page
 
-To create a page in an application or website based on the standard BAS page structure, create an application layout 
+To create a page in an application or website based on the standard BAS page structure, create an application layout
 (e.g. `layouts/app.pug`) with the following:
 
 ```pug
@@ -56,7 +56,7 @@ block main_content
 
 #### Use a page pattern
 
-To create a page in an application or website based on a [page design pattern](#page-patterns), create a view 
+To create a page in an application or website based on a [page design pattern](#page-patterns), create a view
 (e.g. `views/error.pug`) with the following:
 
 ```pug
@@ -275,13 +275,13 @@ For example:
 
 ### Using custom CSS/JS
 
-Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific 
+Support is provided for loading additional CSS an/or JavaScript resources, such as application or website specific
 styling or interactivity, either as references to files, or as inline content.
 
 This support is available in all layouts which inherit from the `html.pug` layout.
 
-For file resources, variables are provided for adding URLs and optional SRI values. Files will be included in the 
-relevant block automatically, after the Style Kit's own resources if a Style Kit layout is used. Inline content can be 
+For file resources, variables are provided for adding URLs and optional SRI values. Files will be included in the
+relevant block automatically, after the Style Kit's own resources if a Style Kit layout is used. Inline content can be
 added manually to these same blocks for loading after files.
 
 * CSS resources are outputted in the [styles](#styles-block) block, at the end of the `<head>` element
@@ -331,12 +331,12 @@ For example:
 }
 ```
 
-The `integrity` property is used to specify a 
-[Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) value for 
-a resource. If specified an `integrity` attribute and will be added to the generated markup. A `crossorigin` 
-attribute will also be added for 
-[Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) support with a 
-hard-coded, `anonymous`, value. 
+The `integrity` property is used to specify a
+[Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) value for
+a resource. If specified an `integrity` attribute and will be added to the generated markup. A `crossorigin`
+attribute will also be added for
+[Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) support with a
+hard-coded, `anonymous`, value.
 
 For example, to specify a custom CSS resource, `/css/app.css`, using a relative URL and a SRI value:
 
@@ -347,7 +347,7 @@ block append variables
   - attributes.site_styles.push({href: '/css/app.css', integrity: 'abc123'});
 ```
 
-If needed, you can bypass this mechanism by adding references directly to the `styles` or `scripts` blocks using the 
+If needed, you can bypass this mechanism by adding references directly to the `styles` or `scripts` blocks using the
 `block append` syntax. This might be needed for inline scripts and styles for example.
 
 **Note:** Make sure to use `block append` and not `block`, as the latter will disable this mechanism and won't include
@@ -355,8 +355,8 @@ the Style Kit's own resources.
 
 ### Navigation menu items
 
-When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a 
-[navbar](https://style-kit.web.bas.ac.uk/components/navbar/) is included as part of the 'standard header', which 
+When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a
+[navbar](https://style-kit.web.bas.ac.uk/components/navbar/) is included as part of the 'standard header', which
 consists of a cookie banner, navbar and site development phase banner.
 
 This navbar consists of three menus (and other elements, documented elsewhere):
@@ -365,8 +365,8 @@ This navbar consists of three menus (and other elements, documented elsewhere):
 2. a secondary navigation menu - aligned right, before the launcher menu
 3. a navigation launcher menu - aligned right, after the secondary navigation menu
 
-The navigation launcher is a restricted menu, used to link to other BAS websites and applications. By default it 
-contains links to the [BAS public website](https://www.bas.ac.uk) and the [BAS data catalogue](https://data.bas.ac.uk). 
+The navigation launcher is a restricted menu, used to link to other BAS websites and applications. By default it
+contains links to the [BAS public website](https://www.bas.ac.uk) and the [BAS data catalogue](https://data.bas.ac.uk).
 Other websites and applications can be added as well where relevant.
 
 The primary and secondary navigation menu's support:
@@ -427,19 +427,19 @@ class to the currently active menu item, and if relevant, sub-item, manually.
 
 ### Navigation menu branding
 
-[Navbars](https://style-kit.web.bas.ac.uk/components/navbar/) are also used to display the name/identity of a website 
+[Navbars](https://style-kit.web.bas.ac.uk/components/navbar/) are also used to display the name/identity of a website
 or application, to remind users where they are. These elements are referred to as 'brand' elements within the Style Kit.
 
-In the 'standard header', navbar brand elements are shown on the far left. 
+In the 'standard header', navbar brand elements are shown on the far left.
 
 Supported brand elements:
 
-* [brand text](https://style-kit.web.bas.ac.uk/components/navbar/#brand-text) - set using the 
+* [brand text](https://style-kit.web.bas.ac.uk/components/navbar/#brand-text) - set using the
 `bsk_attributes.site_nav_brand_text` variable
-* [brand image](https://style-kit.web.bas.ac.uk/components/navbar/#brand-image) - set using the 
+* [brand image](https://style-kit.web.bas.ac.uk/components/navbar/#brand-image) - set using the
 `bsk_attributes.site_nav_brand_img_href` variable
 
-Brand elements can be used together or individually, with fix classes applied automatically as needed. 
+Brand elements can be used together or individually, with fix classes applied automatically as needed.
 
 Brand elements are linked to a location specified by the `bsk_attributes.site_nav_brand_href` variable, which should be
 the index of each website or application (i.e. `/`).
@@ -449,14 +449,14 @@ the index of each website or application (i.e. `/`).
 The site development phase reflects the stage of development for a website or application, e.g. alpha or live. They are
 described in the Style Kit [here](https://style-kit.web.bas.ac.uk/core/colours/#development-phase-colours).
 
-For websites or applications that are not firmly in the 'live' phase, a banner should be shown to inform users and 
+For websites or applications that are not firmly in the 'live' phase, a banner should be shown to inform users and
 request feedback. This forms part of the 'standard header' of cookie banner, navbar and site development phase banner.
 
 In these templates, the `bsk_attributes.site_development_phase` variable is used to specify the current phase for a
-website or application. When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a banner will be 
+website or application. When using the [bsk--standard](#layoutsbas-style-kitbsk-standardpug) layout, a banner will be
 shown automatically based on this variable.
 
-To disable this banner, set the `bsk_attributes.site_development_phase` variable to `live-stable`. This isn't a real 
+To disable this banner, set the `bsk_attributes.site_development_phase` variable to `live-stable`. This isn't a real
 phase but separates a newly released website or application from something more mature.
 
 #### Experimental development phase
@@ -493,7 +493,7 @@ block append variables
 
 ### Site analytics
 
-To include the Google Analytics universal tracking library (gtag), set the `attributes.site_analytics.id` property to 
+To include the Google Analytics universal tracking library (gtag), set the `attributes.site_analytics.id` property to
 relevant Google Analytics property ID.
 
 **Note:** When used the anonymise IP option in Google Analytics is enabled by default.
@@ -509,7 +509,7 @@ block append variables
 
 ## Components
 
-Components in these templates are grouped by their kind (e.g. `layouts/foo.pug`). They are also namespaced in a 
+Components in these templates are grouped by their kind (e.g. `layouts/foo.pug`). They are also namespaced in a
 `bas-style-kit` directory (e.g. `layouts/bas-style-kit/foo.pug`).
 
 Components that are specific to the Style Kit are prefixed with `bsk--`.
@@ -530,7 +530,7 @@ with each layout extending the last in this order:
   compatibility
 * `bsk--base.pug`: intentionally implements the BAS Style Kit as minimally as possible and not intended for direct use,
   unless the bsk_standard.j2 layout is unsuitable
-* `bsk--standard.pug`: defines an opinionated, conventional, page layout with a 'standard' header/footer, recommended 
+* `bsk--standard.pug`: defines an opinionated, conventional, page layout with a 'standard' header/footer, recommended
   as a base for application/website layouts
 
 Layouts can be used using the extend keyword and defining content in the relevant [block](#blocks):
@@ -551,10 +551,10 @@ block main_content
 
 ### Blocks
 
-[Blocks](https://pugjs.org/language/inheritance.html) are used for template inheritance and provide a logical 
+[Blocks](https://pugjs.org/language/inheritance.html) are used for template inheritance and provide a logical
 structure/hierarchy.
 
-Blocks are defined in [Layouts](#layouts), typically with default content using [Includes](#includes). Some blocks are 
+Blocks are defined in [Layouts](#layouts), typically with default content using [Includes](#includes). Some blocks are
 empty, designed for user content or extensibility.
 
 To implement or override a block, redefine it in a template or view:
@@ -573,10 +573,10 @@ append block example_block
 
 ### Includes
 
-[Includes](https://pugjs.org/language/includes.html) are used for organising content, to make management easier, and to 
+[Includes](https://pugjs.org/language/includes.html) are used for organising content, to make management easier, and to
 allow common elements to be used in multiple places, typically in [Blocks](#blocks).
 
-For example the content needed for [using Google Analytics](#google-analytics) is encapsulated in the 
+For example the content needed for [using Google Analytics](#google-analytics) is encapsulated in the
 `body--analytics-script.pug` include.
 
 ### Mixins
@@ -588,8 +588,8 @@ primary and secondary navigation menus the same way, and to implement [component
 
 ### Variables
 
-Various elements in these templates are configurable, such as the name of the application or website, or the CSS/JS 
-resources to include. A JavaScript object is used to configure these elements and should be passed to the Pug 
+Various elements in these templates are configurable, such as the name of the application or website, or the CSS/JS
+resources to include. A JavaScript object is used to configure these elements and should be passed to the Pug
 environment.
 
 **Note:** In Pug, variables are simply JavaScript variables so all methods and concepts that can be applied to a regular
@@ -673,7 +673,7 @@ These variables must not be changed and should be treated as read only:
 | `bsk_attributes.site_footer_policies_copyright_href`         | String     | URL to copyright legal policy                                                                   | `#`                                | -                                                                               |
 | `bsk_attributes.site_footer_policies_privacy_href`           | String     | URL to privacy legal policy                                                                     | `#`                                | -                                                                               |
 
-Where a value is listed as '*As implemented*' the value set within these templates isn't repeated in this documentation. 
+Where a value is listed as '*As implemented*' the value set within these templates isn't repeated in this documentation.
 I.e. the value of the`bsk_variables.templates_version` variable doesn't change how it's used or what it represents.
 
 **Note:** The reference above omits variables used to implement empty objects or arrays, such as `attributes` itself.
@@ -703,14 +703,14 @@ $ docker-compose build
 $ docker-compose up
 ```
 
-This will create a local website designed for testing the layouts, views and some other features of these templates 
+This will create a local website designed for testing the layouts, views and some other features of these templates
 using the [Gulp](https://gulpjs.com/) task manager. The pug templates are used
 
 Visit [localhost:9000](http://localhost:9000) to access the local website.
 
 ### Updating dependencies
 
-If `package.json` is changed the project image will need to be rebuilt and pushed to the private BAS Docker 
+If `package.json` is changed the project image will need to be rebuilt and pushed to the private BAS Docker
 Repository [1].
 
 ```shell
@@ -719,7 +719,7 @@ $ docker-compose build app
 $ docker-compose push app
 ```
 
-Periodically, dependencies should be updated to their latest versions and conflicts resolved. 
+Periodically, dependencies should be updated to their latest versions and conflicts resolved.
 
 The project Docker image should use the latest Node LTS release (as we don't rely on cutting edge Node features), JavaScript dependencies should be updated to their latest versions [2].
 
@@ -822,14 +822,14 @@ features/improvements and reporting bugs.
 
 ## Feedback
 
-The maintainer of this project is the BAS Web & Applications Team, they can be contacted through the 
+The maintainer of this project is the BAS Web & Applications Team, they can be contacted through the
 [BAS Service Desk](mailto:servicedesk@bas.ac.uk).
 
 ## License
 
 © UK Research and Innovation (UKRI), 2018 - 2019, British Antarctic Survey.
 
-You may use and re-use this software and associated documentation files free of charge in any format or medium, under 
+You may use and re-use this software and associated documentation files free of charge in any format or medium, under
 the terms of the Open Government Licence v3.0.
 
 You may obtain a copy of the Open Government Licence at http://www.nationalarchives.gov.uk/doc/open-government-licence/

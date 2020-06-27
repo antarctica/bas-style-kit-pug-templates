@@ -7,7 +7,7 @@
 
 # = Secret variables
 # - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
-#   Sensetive values are represented by "[Sensetive]"
+#   Sensitive values are represented by "[Sensitive]"
 #
 # - Snyk
 # > SNYK_TOKEN: "[Sensitive]"
