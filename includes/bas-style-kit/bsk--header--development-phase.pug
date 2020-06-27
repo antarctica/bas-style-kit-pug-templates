@@ -11,5 +11,5 @@ unless bsk_attributes.site_development_phase == 'live-stable'
         else
             span.bsk-text-uppercase.bsk-label(class='bsk-label-phase-' + bsk_attributes.site_development_phase) #{bsk_attributes.site_development_phase}
             |
-            | This is a new website, your #[a(href=bsk_attributes.site_feedback_href) feedback] will help us to improve it.
+            | This is a new website, your #[a(href=bsk_attributes.site_feedback_href target='_blank') feedback] will help us to improve it.
         hr.bsk-hr-dashed
