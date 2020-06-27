@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * Updated to Style Kit 0.6.0
+* Updated to JS Cookie 2.2.1
+* Updated to jQuery 3.5.1
 
 ## [0.5.0] - 2019-07-01
 
