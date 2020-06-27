@@ -1,0 +1,12 @@
+extends ../../../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - bsk_attributes.site_development_phase = 'experimental';
+
+include ../../../../mixins/bas-style-kit/bsk--pattern--item-type-header.pug
+
+block main_content
+    +pattern_item_type_header('Item type', 'Item title')
+    | test content - #[a(href='../../') back to index].
