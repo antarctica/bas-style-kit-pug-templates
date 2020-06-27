@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.6.0] - 2020-06-26
+
 ### Added
 
 * Documenting component patterns
@@ -15,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * Feedback links changed to open in a new tab
+* Updated licence dates
 
 ## [0.5.0] - 2019-07-01
 
