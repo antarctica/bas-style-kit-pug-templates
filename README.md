@@ -87,21 +87,43 @@ block append variables
   - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
 ```
 
+#### Use a component pattern
+
+To include a [component pattern](#component-patterns) in a view or layout include the relevant mixin and call it with
+any required parameters. For example:
+
+```pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'Example service';
+  - attributes.site_description = 'Service to act as an example';
+  - bsk_attributes.site_nav_brand_text = 'Example service';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_footer_policies_cookies_href = '/legal/cookies';
+  - bsk_attributes.site_footer_policies_copyright_href = '/legal/copyright';
+  - bsk_attributes.site_footer_policies_privacy_href = '/legal/privacy';
+
+include ../../../../mixins/bas-style-kit/bsk--pattern--item-type-header.pug
+
+block main_content
+    +pattern_item_type_header('Item type', 'Item title')
+    | test content
+```
+
 ### Patterns
 
-Design patterns are used to demonstrate preferred ways to pass on information to users, or ask them for information.
-For example, information to show when a service is unavailable, formatting dates consistently or asking users for their
-username in a consistent way. See the [Style Kit documentation](https://style-kit.web.bas.ac.uk/patterns) for more 
-information.
+Patterns are used to define preferred ways to pass information to users, and ask information from users, in a consistent
+way. See the [Style Kit documentation](https://style-kit.web.bas.ac.uk/patterns) for more information.
 
-These patterns are implemented by these templates based on the reference examples included in the Style Kit. These 
-include patterns for:
+There are two types of pattern used in the Style Kit and these templates:
 
-* [pages](#page-patterns) - standalone pages designed to be used without customisation, defined as [Views](#views)
+* [pages](#page-patterns) - standalone pages designed to be used with or without customisation using [Views](#views)
+* [components](#component-patterns) - inline elements designed to be used without customisation using [Mixins](#mixins)
 
 #### Page patterns
 
-These template include views for all page patterns. In most cases all variants of a pattern use the same view, but with
+These templates include views for all page patterns. In most cases all variants of a pattern use the same view, but with
 different options. Variables and blocks are used as relevant for setting page content.
 
 See the [Style Kit documentation](https://style-kit.web.bas.ac.uk) for general information on using these patterns.
@@ -112,7 +134,7 @@ No configuration options.
 
 ##### 'service unavailable' pattern
 
-An optional `pattern_content` block is available for:
+An required `pattern_content` block is available for:
 
 * contact information
 * details of alternative services
@@ -125,14 +147,30 @@ An optional `pattern_attributes.availability` variable is available for setting 
 
 ##### 'problem with this service' pattern
 
-An optional `pattern_content` block is available for:
+An required `pattern_content` block is available for:
 
 * contact information
 * details of alternative services
 
-#### 'start' pattern
+##### 'start' pattern
 
-A `pattern_content_uses` block is available for the 'Use this service to:' section. Pass a unordered list of uses:
+A required `pattern_content_uses` block is available for
+
+* the list of needs the service caters for, shown in the 'Use this service to:' section
+  * pass an unordered list of uses [1]
+
+A required `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call
+to action button [2].
+
+If the call to action should be a 'Sign-in to Start' button, the `pattern_attributes.call_to_action_variant` variable
+can be set to `sign-in-microsoft` [3].
+
+An optional `pattern_content` block is available for [4]:
+
+* the 'before you start' section (using a `.bsk-before-you-start` element)
+* the 'more information' section (using a `.bsk-more-information` element), including contact information
+
+[1]
 
 ```pug
 block pattern_content_type
@@ -141,26 +179,21 @@ block pattern_content_type
     li another use
 ```
 
-A `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call to action
-button.
+[2]
 
 ```pug
 block append variables
   - pattern_attributes.call_to_action_href = '#'
 ```
 
-If the call to action should be a 'Sign-in to Start' button, set the `pattern_attributes.call_to_action_variant` 
-variable to `sign-in-microsoft`.
+[3]
 
 ```pug
 block append variables
   - pattern_attributes.call_to_action_variant = 'sign-in-microsoft'
 ```
 
-An optional `pattern_content` block is available for:
-
-* 'before you start' information
-* more information
+[4]
 
 ```pug
 block pattern_content
@@ -171,19 +204,74 @@ block pattern_content
   section.bsk-more-information
     h2.bsk-h3 More information
     p Some additional information
+    p You can also #[a(href='#') contact the Sample Team] for additional support.
 ```
 
-#### 'sign-in' pattern
+##### 'sign-in' pattern
 
 A `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call to action
-button.
+button [1].
+
+An required `pattern_content` block is available for any additional information, including contact information [2].
+
+[1]
 
 ```pug
 block append variables
   - pattern_attributes.call_to_action_href = '#'
 ```
 
-An optional `pattern_content` block is available for any additional information.
+[2]
+
+```pug
+block pattern_content
+  section.bsk-more-information
+    h2.bsk-h3 More information
+    p Contact the #[a(href='#') Sample Team] for more information.
+    p Contact the #[a(href='#') IT Service Desk] if you are unable to sign-in.
+```
+
+#### Component patterns
+
+These templates include mixins for all component patterns. Mixin parameters are used for customising each instance of
+the component.
+
+**Note:** Mixin parameters are positional, meaning you need to ensure values are provided in the right order to work.
+
+See the [Style Kit documentation](https://style-kit.web.bas.ac.uk) for general information on using these patterns.
+
+##### Item type header pattern
+
+Parameters:
+
+1. `item_type` the type or kind of thing the item is, e.g. if the item is a person, it's type is 'person'
+2. `item_title` a label specific to the item, e.g. if the item is a person their name
+
+```pug
++pattern_item_type_header('item_type', 'item_title')
+```
+
+For example:
+
+```pug
++pattern_item_type_header('Person', 'Connie Watson')
+```
+
+##### ORCID iD pattern
+
+Parameters:
+
+1. `orcid_id` the ORCID iD of an individual as a URL
+
+```pug
++pattern_orcid_id('ocird_id')
+```
+
+For example:
+
+```pug
++pattern_orcid_id('https://sandbox.orcid.org/0000-0001-8373-6934')
+```
 
 ### Using custom CSS/JS
 
@@ -495,8 +583,8 @@ For example the content needed for [using Google Analytics](#google-analytics) i
 
 [Mixins](https://pugjs.org/language/mixins.html) are used to provide configurable, reusable, functionality.
 
-For example, primary and secondary [navigation menus](#navigation-menu-items) process navigation items the same way, 
-using the `bsk--nav.pug` macro.
+They are used within other components, such as the [navigation menus](#navigation-menu-items) mixin for processing
+primary and secondary navigation menus the same way, and to implement [component patterns](#component-patterns).
 
 ### Variables
 
