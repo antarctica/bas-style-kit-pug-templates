@@ -771,11 +771,7 @@ Merge requests **WILL NOT** be accepted on this mirror.
 ### Before release
 
 1. create a release branch
-2. remove `-develop` from the version in:
-  * `package.json`
-  * `layouts/bas-style-kit/blank.pug`:
-    * `bsk_variables.templates_version`
-3. build and push the app docker image [1]
+3. build and push the app docker image
 4. close release in changelog
 5. commit changes, merge with master and tag with new version
 6. push the merged release to NPM [2]
@@ -784,14 +780,16 @@ Merge requests **WILL NOT** be accepted on this mirror.
 
 ### Publishing NPM package
 
+**Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
+
 To preview the contents of the NPM package:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ npm pack
+$ npm pack --dry-run
 ```
 
-**Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
+To publish the package to NPM:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
@@ -801,19 +799,12 @@ $ npm publish
 
 ### After release
 
-1. bump the version with `-develop` as a prefix in:
+1. bump the version in:
   * `package.json`
   * `layouts/bas-style-kit/blank.pug`:
     * `bsk_variables.templates_version`
 2. push the app docker image [1]
 3. commit changes, merge with master and close post-release branch
-
-[1]
-
-```shell
-$ docker-compose build
-$ docker-compose push
-```
 
 ## Issue tracking
 
