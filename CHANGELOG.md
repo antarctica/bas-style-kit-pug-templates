@@ -5,8 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.6.0] - 2020-06-26
+
 ### Added
 
+* Documenting component patterns
 * Updated to Style Kit 0.6.0
 * Updated to JS Cookie 2.2.1
 * Updated to jQuery 3.5.1
@@ -14,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * Feedback links changed to open in a new tab
+* Updated licence dates
 
 ## [0.5.0] - 2019-07-01
 
@@ -34,7 +38,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * Updated to Style Kit 0.5.0
 
-### Fixed 
+### Fixed
 
 * Added missing GitLab CI file from release procedures
 
@@ -64,10 +68,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed [BREAKING!]
 
-* Refactoring navigation menu includes, `bsk--nav-collapse--primary-nav.pug` is now 
-  `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now 
+* Refactoring navigation menu includes, `bsk--nav-collapse--primary-nav.pug` is now
+  `bsk--nav-collapse--nav-primary.pug`, `bsk--nav-collapse--secondary-nav.pug` is now
   `bsk--nav-collapse--nav-secondary.pug`
-* Variable for navigation launcher items, `bsk_attributes.site_nav_launcher_extras` is now 
+* Variable for navigation launcher items, `bsk_attributes.site_nav_launcher_extras` is now
   `bsk_attributes.site_nav_launcher`
 * Favicons include moved out of `html` layout into `bsk--basic` layout as it is now Style Kit specific
 * Favicons support is limited to Style Kit favicons only (unless the include is overriden)
@@ -111,6 +115,6 @@ This release was skipped to test NPM version testing.
 
 ## [0.1.0] - 2018-07-31
 
-### Added 
+### Added
 
 * Initial project - based on BAS Style Kit version 0.4.0
