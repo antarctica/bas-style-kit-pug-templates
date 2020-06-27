@@ -11,6 +11,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Updated to JS Cookie 2.2.1
 * Updated to jQuery 3.5.1
 
+### Changed
+
+* Feedback links changed to open in a new tab
+
 ## [0.5.0] - 2019-07-01
 
 ### Added
