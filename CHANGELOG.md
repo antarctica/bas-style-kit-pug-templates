@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* Updated to jQuery 3.6.0
 * Updated development dependencies and Docker base image
 
 ### Fixed
