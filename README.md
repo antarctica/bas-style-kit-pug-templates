@@ -162,7 +162,7 @@ A required `pattern_content_uses` block is available for
 A required `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call
 to action button [2].
 
-If the call to action should be a 'Sign-in to Start' button, the `pattern_attributes.call_to_action_variant` variable
+If the call to action should be a 'Sign in to Start' button, the `pattern_attributes.call_to_action_variant` variable
 can be set to `sign-in-microsoft` [3].
 
 An optional `pattern_content` block is available for [4]:
@@ -207,7 +207,7 @@ block pattern_content
     p You can also #[a(href='#') contact the Sample Team] for additional support.
 ```
 
-##### 'sign-in' pattern
+##### 'sign in' pattern
 
 A `pattern_attributes.call_to_action_href` variable is available for setting the link of the 'Start Now' call to action
 button [1].
@@ -228,7 +228,7 @@ block pattern_content
   section.bsk-more-information
     h2.bsk-h3 More information
     p Contact the #[a(href='#') Sample Team] for more information.
-    p Contact the #[a(href='#') IT Service Desk] if you are unable to sign-in.
+    p Contact the #[a(href='#') IT Service Desk] if you are unable to sign in.
 ```
 
 #### Component patterns
