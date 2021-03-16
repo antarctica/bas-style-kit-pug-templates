@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * Corrected release procedures
+* Corrected inconsistent use of 'sign in' and 'sign-in' (should be 'sign in')
 
 ## [0.6.0] - 2020-06-26
 
