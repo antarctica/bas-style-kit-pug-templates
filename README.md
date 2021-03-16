@@ -736,10 +736,10 @@ Dependencies listed in `package.json` can be checked using tools such as
 $ rm yarn.lock
 $ docker-compose build app
 $ docker-compose run --entrypoint="" app ash
-$ mv yarn.lock ./assets/
+$ mv yarn.lock ./layouts/
 $ exit
 $ docker-compose down
-$ mv assets/yarn.lock ./
+$ mv layouts/yarn.lock ./
 ```
 
 **Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
@@ -818,7 +818,7 @@ The maintainer of this project is the BAS Web & Applications Team, they can be c
 
 ## License
 
-© UK Research and Innovation (UKRI), 2018 - 2020, British Antarctic Survey.
+© UK Research and Innovation (UKRI), 2018 - 2021, British Antarctic Survey.
 
 You may use and re-use this software and associated documentation files free of charge in any format or medium, under
 the terms of the Open Government Licence v3.0.

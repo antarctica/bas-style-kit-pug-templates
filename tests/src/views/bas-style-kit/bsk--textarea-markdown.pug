@@ -1,0 +1,19 @@
+extends ../../../../layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Pug Templates';
+  - attributes.site_description = 'A set of Pug templates implementing the BAS Style Kit';
+  - attributes.site_styles.push({href: 'https://cdn.web.bas.ac.uk/libs/font-awesome-pro/5.13.0/css/all.min.css', integrity: 'sha256-DjbUjEiuM4tczO997cVF1zbf91BC9OzycscGGk/ZKks='})
+  - bsk_attributes.site_development_phase = 'experimental';
+
+include ../../../../mixins/bas-style-kit/bsk--pattern--orcid-id.pug
+
+block main_content
+  fieldset
+    div.bsk-form-group
+      label(for='content') Markdown textarea
+      textarea#content.bsk-form-control(name='content' rows='8')
+    div.bsk-help-block.bsk-text-muted
+      i.fab.fa-markdown
+      |
+      | You can use #[a(href='https://commonmark.org/help/') Markdown] to format your message.
