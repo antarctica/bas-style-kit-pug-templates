@@ -736,10 +736,10 @@ Dependencies listed in `package.json` can be checked using tools such as
 $ rm yarn.lock
 $ docker-compose build app
 $ docker-compose run --entrypoint="" app ash
-$ mv yarn.lock ./assets/
+$ mv yarn.lock ./layouts/
 $ exit
 $ docker-compose down
-$ mv assets/yarn.lock ./
+$ mv layouts/yarn.lock ./
 ```
 
 **Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.

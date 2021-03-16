@@ -1,4 +1,4 @@
-FROM node:carbon-alpine
+FROM node:erbium-alpine
 
 LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 
@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 
 # Setup project dependencies
 COPY package.json /usr/src/app
-RUN npm install --global yarn && yarn install
+RUN yarn install
 
 # Run tests
 RUN echo "node version: " && node --version && \

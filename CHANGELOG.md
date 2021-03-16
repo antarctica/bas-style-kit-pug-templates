@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
-* Updated development dependencies
+* Updated development dependencies and Docker base image
 
 ### Fixed
 
